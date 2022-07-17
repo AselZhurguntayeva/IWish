@@ -13,10 +13,10 @@ struct ItemView: View {
     @State private var itemName: String = ""
     @State private var price: String = ""
     @State private var quantity: String = ""
-    @State private var isLiked = false
+//    @State private var isLiked = false
     
     
-    @State private var itemViewModel = ItemViewModel()
+    @StateObject private var itemViewModel = ItemViewModel()
     
     @Binding var wishList: WishList
     

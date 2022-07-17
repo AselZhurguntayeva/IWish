@@ -27,13 +27,12 @@ struct WishListView: View {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button(action: {
                                 showSheet.toggle()
-                           
 //                                wishListViewModel.createWishList(WishList(title: title))
 //                                title = ""
                             }, label: {
                                 Image(systemName: "plus")
                             })
-                            .fullScreenCover(isPresented: $showSheet, content: { CreateWishList()
+                            .fullScreenCover(isPresented: $showSheet, content: { CreateWishList( wishListViewModel: wishListViewModel)
                             })
                         }
                         

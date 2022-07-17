@@ -9,7 +9,7 @@ import Foundation
 
 class ItemViewModel:ObservableObject {
     
-    var items: [Item] = []
+   @Published var items: [Item] = []
     
     func createItem(item: Item, wishList: WishList, wishListViewModel: WishListViewModel) {
         guard let index = wishListViewModel.wishLists.firstIndex(of: wishList) else { return }
@@ -26,8 +26,8 @@ class ItemViewModel:ObservableObject {
     }
     func toggleIsDone(for item: Item) {
        guard let index = items.firstIndex(of: item) else { return }
-        let item = items[index]
-        item.isLiked.toggle()
+//        let item = items[index]
+        items[index].isLiked.toggle()
         
     }
     

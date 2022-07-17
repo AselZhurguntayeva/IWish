@@ -10,12 +10,13 @@ import SwiftUI
 struct CreateWishList: View {
     
     @Environment (\.presentationMode) var presentationMode
+    @Environment(\.dismiss) private var dismiss
     
     @State var selectedDate: Date = .now
-    @State private var title: String = ""
+    @State private var titleText: String = ""
     @State private var date: String = ""
     //@StateObject private var wishListViewModel = WishListViewModel()
-    @ObservedObject var wishListViewModel = WishListViewModel()
+    @ObservedObject var wishListViewModel: WishListViewModel
     var wishList: WishList?
     
     let startingDate: Date = Date()
@@ -34,7 +35,7 @@ struct CreateWishList: View {
                 ZStack {
                     Rectangle().fill(.ultraThinMaterial)
                         .cornerRadius(12)
-                    TextField("i.e. Christmas", text: $title)
+                    TextField("i.e. Christmas", text: $titleText)
                         .padding()
                 }.frame(width: UIScreen.main.bounds.width - 30, height: 55)
                 
@@ -62,9 +63,18 @@ struct CreateWishList: View {
                 }
                 .labelsHidden()
                 Button {
-                    if wishList == nil {
-                        prepareForCreateWishList(title: title)
-                    } else { return }
+//                    if wishList == nil
+//                    {
+//                        prepareForCreateWishList(title: titleText, date: selectedDate)
+//                    guard
+                        let title = titleText
+//                    , !title.isEmpty
+//                    else { return }
+                        let wishList = WishList(title: title)
+                
+                        wishListViewModel.createWishList(wishList)
+//                    } else { return }
+                   dismiss()
                 } label: {
                     Text(wishList == nil ? "Create" : "Cancel")
                 }.padding()
@@ -82,23 +92,23 @@ struct CreateWishList: View {
         }
         .onAppear {
             if let wishList = wishList {
-                title = wishList.title
+                titleText = wishList.title
             }
         }
     }
-    func prepareForCreateWishList(title: String?
+//    func prepareForCreateWishList(title: String?
 //                                  , date: Date?
-    ) {
-        guard let title = title, !title.isEmpty
-        else {return}
-        let wishList = WishList(title: title)
-        wishListViewModel.createWishList(wishList)
-    }
+//    ) {
+//        guard let title = title, !title.isEmpty
+//        else {return}
+//        let wishList = WishList(title: title)
+//        wishListViewModel.createWishList(wishList)
+//    }
 }
 
 struct CreateWishList_Previews: PreviewProvider {
     static var previews: some View {
-        CreateWishList()
+        CreateWishList(wishListViewModel: WishListViewModel())
     }
 }
 
