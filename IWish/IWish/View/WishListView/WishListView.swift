@@ -21,48 +21,48 @@ struct WishListView: View {
                     Text("My Wish Lists")
                         .font(.title)
                         .fontWeight(.semibold)
-                    .background(.blue)
+                        .background(.blue)
                 }
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Button(action: {
-                                showSheet.toggle()
-//                                wishListViewModel.createWishList(WishList(title: title))
-//                                title = ""
-                            }, label: {
-                                Image(systemName: "plus")
-                            })
-                            .fullScreenCover(isPresented: $showSheet, content: { CreateWishList( wishListViewModel: wishListViewModel)
-                            })
-                        }
-                        
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            showSheet.toggle()
+                            //                                wishListViewModel.createWishList(WishList(title: title))
+                            //                                title = ""
+                        }, label: {
+                            Image(systemName: "plus")
+                        })
+                        .fullScreenCover(isPresented: $showSheet, content: { CreateWishList( wishListViewModel: wishListViewModel)
+                        })
                     }
-                    .onAppear {
-                        setupViews()
-                    }
+                    
+                }
+                //                    .onAppear {
+                //                        setupViews()
+                //                    }
                 
-                    Spacer()
+                Spacer()
                 List {
                     ForEach($wishListViewModel.wishLists) { item in NavigationLink {
                         ItemView(wishList: item, wishListViewModel: wishListViewModel)
                     } label: {
-                        VStack(alignment:.center) {
+                        VStack(alignment:.trailing) {
                             Text(item.title.wrappedValue)
                                 .font(.headline)
                             Image(systemName: "gift")
-                                .frame(width: 50, height: 50, alignment: .center)
-                            Text("Wish List \(item.items.count) items")
+                                .frame(width: 150, height: 150, alignment: .trailing)
+                                .background(.red)
+                            Text("Total:\(item.items.count) items")
                                 .font(.subheadline)
+                            
                         }
                         .padding()
                     }
-                    
-                        
-                    }
+                }
                     .onDelete(perform: wishListViewModel.deleteWishList(at:))
                 }
             }.background(.yellow)
-                
+            
         }
     }
     func setupViews() {

@@ -14,7 +14,8 @@ struct ItemView: View {
     @State private var price: String = ""
     @State private var quantity: String = ""
 //    @State private var isLiked = false
-    
+   
+    @Environment(\.dismiss) private var dismiss
     
     @StateObject private var itemViewModel = ItemViewModel()
     
@@ -49,13 +50,14 @@ struct ItemView: View {
                     ForEach(wishList.items)
                     { item in
                         cellBody( item: item, itemViewModel: itemViewModel)
-                        Button(action: {
-                            itemViewModel.toggleIsDone(for: item)
-                            print(item.isLiked)
-                            print (item.itemName)
-                        }, label: {
+                        Button {
+                            itemViewModel.toggleIsLiked(for: item)
+//                            print(item.isLiked)
+//                            print (item.itemName)
+                        } label: {
                             Image(systemName: item.isLiked ? "heart" : "heart.fill")
-                        })
+                                
+                        }
                     }
                     .onDelete { indexSet in
                         itemViewModel.deleteItem(wishList: wishList, wishListViewModel: wishListViewModel, at: indexSet)
@@ -70,21 +72,19 @@ struct ItemView: View {
                             itemName = ""
                             quantity = ""
                             price = ""
+                            
                         } label: {
                             ZStack {
                                 Rectangle().fill(.ultraThinMaterial)
                                     .cornerRadius(12)
                                 Text("Save")
                                     .foregroundColor(.primary)
+                                
                             }
                         }.frame(width: UIScreen.main.bounds.width - 20, height: 55)
                     }
                 }
             }
-            
-            
-            
-            
         }
         
     }
@@ -144,22 +144,17 @@ struct cellBody: View {
           .font(.headline)
         
       }
-      Spacer()
+//      Spacer()
         Text(item.quantity)
           .foregroundColor(.primary)
           .font(.subheadline)
           .background(.yellow)
           .frame(width: 50, alignment: .center)
-          Text(item.price)
+          
+          Text("$\(item.price)")
             .foregroundColor(.primary)
             .font(.subheadline)
             .frame(width: 50, alignment: .center)
-//        Button(action: {
-//            itemViewModel.toggleIsDone(for: item)
-//            print(item.isLiked)
-//        }, label: {
-//            Image(systemName: item.isLiked ? "heart" : "heart.fill")
-//        })
         
         .imageScale(.large)
         .foregroundColor(.primary)
@@ -168,5 +163,6 @@ struct cellBody: View {
     }
     .padding()
     .cornerRadius(8)
+    .background(.gray)
   }
 }

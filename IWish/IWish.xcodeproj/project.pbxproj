@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5D811322884AB8A00BA276D /* ItemDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D811312884AB8A00BA276D /* ItemDrawing.swift */; };
 		B5DA93E0287F9AB200E2A1E7 /* IWishApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DA93DF287F9AB200E2A1E7 /* IWishApp.swift */; };
 		B5DA93E4287F9AB300E2A1E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5DA93E3287F9AB300E2A1E7 /* Assets.xcassets */; };
 		B5DA93E7287F9AB300E2A1E7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5DA93E6287F9AB300E2A1E7 /* Preview Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B5D811312884AB8A00BA276D /* ItemDrawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDrawing.swift; sourceTree = "<group>"; };
 		B5DA93DC287F9AB200E2A1E7 /* IWish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IWish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5DA93DF287F9AB200E2A1E7 /* IWishApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWishApp.swift; sourceTree = "<group>"; };
 		B5DA93E3287F9AB300E2A1E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				B5DA93F0287F9B7700E2A1E7 /* WishListView */,
 				B5DA93EF287F9B6B00E2A1E7 /* ItemView */,
 				B5DA93FE287FE33F00E2A1E7 /* CreateWishList.swift */,
+				B5D811312884AB8A00BA276D /* ItemDrawing.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				B5DA93F5287F9BBC00E2A1E7 /* Item.swift in Sources */,
 				B5DA93FF287FE33F00E2A1E7 /* CreateWishList.swift in Sources */,
 				B5DA93F9287F9BEA00E2A1E7 /* WishListModel.swift in Sources */,
+				B5D811322884AB8A00BA276D /* ItemDrawing.swift in Sources */,
 				B5DA93E0287F9AB200E2A1E7 /* IWishApp.swift in Sources */,
 				B5DA93FD287F9C0C00E2A1E7 /* ItemView.swift in Sources */,
 				B5DA93F7287F9BD700E2A1E7 /* WishListView.swift in Sources */,
@@ -333,6 +337,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"IWish/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow To Save Drawings";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -361,6 +366,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"IWish/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow To Save Drawings";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

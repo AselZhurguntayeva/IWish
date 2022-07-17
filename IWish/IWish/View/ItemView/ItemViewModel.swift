@@ -24,7 +24,7 @@ class ItemViewModel:ObservableObject {
         guard let index = wishListViewModel.wishLists.firstIndex(of: wishList) else { return }
         wishListViewModel.wishLists[index].items.remove(atOffsets: indexSet)
     }
-    func toggleIsDone(for item: Item) {
+    func toggleIsLiked(for item: Item) {
        guard let index = items.firstIndex(of: item) else { return }
 //        let item = items[index]
         items[index].isLiked.toggle()
