@@ -1,0 +1,6 @@
+framework module Pods_IWish {
+  umbrella header "Pods-IWish-umbrella.h"
+
+  export *
+  module * { export * }
+}
