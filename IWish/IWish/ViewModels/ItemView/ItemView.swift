@@ -9,11 +9,12 @@ import SwiftUI
 
 struct ItemView: View {
     
-//    @State private var title: String = ""
     @State private var itemName: String = ""
     @State private var price: String = ""
     @State private var quantity: String = ""
-//    @State private var isLiked = false
+    @State private var image: String = ""
+    @State var showSheet: Bool = false
+    @State private var isLiked = false
    
     @Environment(\.dismiss) private var dismiss
     
@@ -27,25 +28,40 @@ struct ItemView: View {
         NavigationView {
             VStack {
                 VStack {
-                    TextField("Item Name", text: $itemName)
-                        .padding(10)
-                        .overlay(Rectangle().frame( height: 3).padding(.top, 45))
-                    HStack {
-                        TextField("Quantity", text: $quantity)
+                        TextField("Item Name", text: $itemName)
                             .padding(10)
-                            .overlay(
-                                Rectangle().frame(height: 3)
+                            .overlay(Rectangle()
+                            .frame( height:       3).padding(.top, 45))
+                        HStack {
+                            TextField("Quantity", text: $quantity)
+                                .padding(10)
+                                .overlay(
+                                    Rectangle().frame(height: 3)
                                     .padding(.top, 45))
-                        TextField("Price", text: $price)
-                            .padding(10)
-                            .overlay(
-                            Rectangle()
-                            .frame(height: 3)
+                            TextField("Price", text: $price)
+                                .padding(10)
+                                .overlay(
+                                Rectangle()
+                                .frame(height: 3)
                             .padding(.top, 45))
                     }
                     .padding(-5)
+                    
                 }
-                .navigationTitle("Wish List Title")
+                .navigationTitle(wishList.title)
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            showSheet.toggle()
+                        }, label: {
+                            Image(systemName: "plus")
+                        })
+                        .fullScreenCover(isPresented: $showSheet, content: { ItemDrawingView( itemViewModel: itemViewModel)
+                        })
+                    }
+                    
+                }.padding()
                 List {
                     ForEach(wishList.items)
                     { item in
@@ -56,7 +72,6 @@ struct ItemView: View {
 //                            print (item.itemName)
                         } label: {
                             Image(systemName: item.isLiked ? "heart" : "heart.fill")
-                                
                         }
                     }
                     .onDelete { indexSet in
@@ -68,7 +83,7 @@ struct ItemView: View {
                 .toolbar {
                     ToolbarItem(placement: .bottomBar) {
                         Button {
-                            itemViewModel.createItem(item: Item(itemName: itemName, quantity: quantity, price: price), wishList: wishList, wishListViewModel: wishListViewModel)
+                            itemViewModel.createItem(item: Item(itemName: itemName, quantity: quantity, price: price, image: image), wishList: wishList, wishListViewModel: wishListViewModel)
                             itemName = ""
                             quantity = ""
                             price = ""
@@ -81,7 +96,7 @@ struct ItemView: View {
                                     .foregroundColor(.primary)
                                 
                             }
-                        }.frame(width: UIScreen.main.bounds.width - 20, height: 55)
+                        }.frame(width: UIScreen.main.bounds.width - 80, height: 55)
                     }
                 }
             }
@@ -93,7 +108,7 @@ struct ItemView: View {
         let quantity = quantity, !quantity.isEmpty,
         let price = price, !price.isEmpty
         else { return }
-        let item = Item(itemName: itemName, quantity: quantity, price: price)
+        let item = Item(itemName: itemName, quantity: quantity, price: price, image: image)
         itemViewModel.createItem(item: item, wishList: wishList, wishListViewModel: wishListViewModel)
     }
 //    func prepareForUpdateItem() {
@@ -115,7 +130,7 @@ struct ItemView_Previews: PreviewProvider {
         ItemView(wishList: .constant(
             WishList(title: "Christmas",
                items: [
-               Item(itemName: "Dayson Hair Dryer", quantity: "1", price: "$200")
+                Item(itemName: "Dayson Hair Dryer", quantity: "1", price: "$200", image: "draeing")
                ])), wishListViewModel: WishListViewModel())
     }
 }
@@ -142,7 +157,6 @@ struct cellBody: View {
         Text(item.itemName)
           .foregroundColor(.primary)
           .font(.headline)
-        
       }
 //      Spacer()
         Text(item.quantity)

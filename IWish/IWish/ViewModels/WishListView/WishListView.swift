@@ -21,26 +21,18 @@ struct WishListView: View {
                     Text("My Wish Lists")
                         .font(.title)
                         .fontWeight(.semibold)
-                        .background(.blue)
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {
                             showSheet.toggle()
-                            //                                wishListViewModel.createWishList(WishList(title: title))
-                            //                                title = ""
                         }, label: {
                             Image(systemName: "plus")
                         })
                         .fullScreenCover(isPresented: $showSheet, content: { CreateWishList( wishListViewModel: wishListViewModel)
                         })
                     }
-                    
                 }
-                //                    .onAppear {
-                //                        setupViews()
-                //                    }
-                
                 Spacer()
                 List {
                     ForEach($wishListViewModel.wishLists) { item in NavigationLink {
@@ -54,14 +46,13 @@ struct WishListView: View {
                                 .background(.red)
                             Text("Total:\(item.items.count) items")
                                 .font(.subheadline)
-                            
                         }
                         .padding()
                     }
                 }
                     .onDelete(perform: wishListViewModel.deleteWishList(at:))
                 }
-            }.background(.yellow)
+            }
             
         }
     }
