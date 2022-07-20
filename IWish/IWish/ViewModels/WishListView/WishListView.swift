@@ -14,7 +14,6 @@ struct WishListView: View {
     @State var showSheet: Bool = false
     
     var body: some View {
-        
         NavigationView {
             VStack {
                 HStack {
@@ -34,24 +33,25 @@ struct WishListView: View {
                     }
                 }
                 Spacer()
-                List {
-                    ForEach($wishListViewModel.wishLists) { item in NavigationLink {
-                        ItemView(wishList: item, wishListViewModel: wishListViewModel)
-                    } label: {
-                        VStack(alignment:.trailing) {
-                            Text(item.title.wrappedValue)
-                                .font(.headline)
-                            Image(systemName: "gift")
-                                .frame(width: 150, height: 150, alignment: .trailing)
-                                .background(.red)
-                            Text("Total:\(item.items.count) items")
-                                .font(.subheadline)
+                    List {
+                        ForEach($wishListViewModel.wishLists) { item in NavigationLink {
+                            ItemView(wishList: item, wishListViewModel: wishListViewModel)
+                        } label: {
+                            VStack(alignment: .center) {
+                                Text(item.title.wrappedValue)
+                                    .font(.headline)
+                                Image(systemName: "gift")
+                                    .frame(width: 100, height: 100, alignment: .trailing)
+//                                    .background(.red)
+                                Text("Total:\(item.items.count) items")
+                                    .font(.subheadline)
+                            }
+                            .padding()
+//                            .background(.green)
                         }
-                        .padding()
                     }
-                }
-                    .onDelete(perform: wishListViewModel.deleteWishList(at:))
-                }
+                        .onDelete(perform: wishListViewModel.deleteWishList(at:))
+                    }
             }
             
         }

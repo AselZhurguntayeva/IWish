@@ -28,22 +28,34 @@ struct ItemView: View {
         NavigationView {
             VStack {
                 VStack {
-                        TextField("Item Name", text: $itemName)
-                            .padding(10)
-                            .overlay(Rectangle()
-                            .frame( height:       3).padding(.top, 45))
+                    ZStack {
+                        Rectangle().fill(.ultraThinMaterial)
+                            TextField("Item Name", text: $itemName)
+//                                .padding(10)
+                    }.cornerRadius(12)
+                        .frame(width: UIScreen.main.bounds.width - 30, height: 55, alignment: .leading)
+//                            .overlay(Rectangle()
+//                            .frame( height:       3).padding(.top, 45))
                         HStack {
-                            TextField("Quantity", text: $quantity)
-                                .padding(10)
-                                .overlay(
-                                    Rectangle().frame(height: 3)
-                                    .padding(.top, 45))
-                            TextField("Price", text: $price)
-                                .padding(10)
-                                .overlay(
-                                Rectangle()
-                                .frame(height: 3)
-                            .padding(.top, 45))
+                            ZStack {
+                                Rectangle().fill(.ultraThinMaterial)
+                                    TextField("Quantity", text: $quantity)
+//                                    .padding(10)
+//                                    .overlay(
+//                           Rectangle().frame(height: 3)                                       .padding(.top, 45))
+                            }.frame(width: UIScreen.main.bounds.width - 200, height: 55, alignment: .leading)
+                             .cornerRadius(12)
+                            
+                            ZStack {
+                                Rectangle().fill(.ultraThinMaterial)
+                                    TextField("Price", text: $price)
+//                                        .padding(10)
+//                                        .overlay(
+//                                        Rectangle()
+//                                        .frame(height: 3)
+//                                    .padding(.top, 45))
+                            }
+                            .frame(width: UIScreen.main.bounds.width - 200, height: 55, alignment: .leading).cornerRadius(12)
                     }
                     .padding(-5)
                     
@@ -62,47 +74,51 @@ struct ItemView: View {
                     }
                     
                 }.padding()
-                List {
-                    ForEach(wishList.items)
-                    { item in
-                        cellBody( item: item, itemViewModel: itemViewModel)
-                        Button {
-                            itemViewModel.toggleIsLiked(for: item)
-//                            print(item.isLiked)
-//                            print (item.itemName)
-                        } label: {
-                            Image(systemName: item.isLiked ? "heart" : "heart.fill")
+                    List {
+                        ForEach(wishList.items)
+                        { item in
+                            cellBody( item: item, itemViewModel: itemViewModel)
+                            Button {
+                                itemViewModel.toggleIsLiked(for: item)
+    //                            print(item.isLiked)
+    //                            print (item.itemName)
+                            } label: {
+                                Image(systemName: item.isLiked ? "heart" : "heart.fill")
+                            }
+                        }
+                        .onDelete { indexSet in
+                            itemViewModel.deleteItem(wishList: wishList, wishListViewModel: wishListViewModel, at: indexSet)
                         }
                     }
-                    .onDelete { indexSet in
-                        itemViewModel.deleteItem(wishList: wishList, wishListViewModel: wishListViewModel, at: indexSet)
-                    }
-                }
-                .listStyle(GroupedListStyle())
-                .listRowBackground(Color.clear)
-                .toolbar {
-                    ToolbarItem(placement: .bottomBar) {
-                        Button {
-                            itemViewModel.createItem(item: Item(itemName: itemName, quantity: quantity, price: price, image: image), wishList: wishList, wishListViewModel: wishListViewModel)
-                            itemName = ""
-                            quantity = ""
-                            price = ""
-                            
-                        } label: {
-                            ZStack {
-                                Rectangle().fill(.ultraThinMaterial)
-                                    .cornerRadius(12)
-                                Text("Save")
-                                    .foregroundColor(.primary)
+                Spacer()
+                    .listStyle(GroupedListStyle())
+                    .listRowBackground(Color.clear)
+                    .toolbar {
+                        ToolbarItem(placement: .bottomBar) {
+                            Button {
+                                itemViewModel.createItem(item: Item(itemName: itemName, quantity: quantity, price: price, image: image), wishList: wishList, wishListViewModel: wishListViewModel)
+                                itemName = ""
+                                quantity = ""
+                                price = ""
                                 
-                            }
-                        }.frame(width: UIScreen.main.bounds.width - 80, height: 55)
+                            } label: {
+                                ZStack {
+                                    Rectangle().fill(.ultraThinMaterial)
+                                        .cornerRadius(12)
+                                    Text("Save")
+                                    .foregroundColor(.primary)
+                                }
+                            }.frame(width: UIScreen.main.bounds.width - 250, height: 55)
+                                
+                                .background(.ultraThinMaterial)
+                                .cornerRadius(12)
+                        }
                     }
                 }
+           
             }
         }
         
-    }
     func prepareForCreateItem(itemName: String?, quantity: String?, price: String?) {
         guard let itemName = itemName, !itemName.isEmpty,
         let quantity = quantity, !quantity.isEmpty,

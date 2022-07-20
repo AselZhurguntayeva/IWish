@@ -25,7 +25,7 @@ struct ItemDrawingView: View {
                     .navigationTitle("Draw your wish")
                     .navigationBarTitleDisplayMode(.inline)
                     .navigationBarItems(leading:
-                                            HStack(spacing: 10) {
+                        HStack(spacing: 10) {
                         Button {
                             // cancel drawing image
                             presentationMode.wrappedValue.dismiss()
@@ -44,7 +44,7 @@ struct ItemDrawingView: View {
                                 .font(.title)
                         }
                     }, trailing:
-                                            HStack(spacing: 15) {
+                        HStack(spacing: 15) {
                         Button(action: {
                             // erase tool
                             isDraw = false
