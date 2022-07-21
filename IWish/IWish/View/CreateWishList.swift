@@ -25,6 +25,7 @@ struct CreateWishList: View {
         NavigationView {
             VStack {
                 ZStack {
+                    Spacer()
                     Rectangle().fill(Color.clear)
                     Text("Title")
                         .frame( maxWidth: .infinity, alignment: .leading)
@@ -88,8 +89,18 @@ struct CreateWishList: View {
                     })
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        hideKeyboard()
+                    } label: {
+                        Image(systemName: "keyboard.chevron.compact.down")
+                    }
+                }
+            }
             
         }
+        
         .onAppear {
             if let wishList = wishList {
                 titleText = wishList.title
@@ -112,3 +123,8 @@ struct CreateWishList_Previews: PreviewProvider {
     }
 }
 
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}

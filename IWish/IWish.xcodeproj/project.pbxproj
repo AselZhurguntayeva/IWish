@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B53E8FCC2888789900AD2ACD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B53E8FCB2888789900AD2ACD /* GoogleService-Info.plist */; };
+		B53E8FCF28887ADD00AD2ACD /* FirebaseService in Frameworks */ = {isa = PBXBuildFile; productRef = B53E8FCE28887ADD00AD2ACD /* FirebaseService */; };
+		B53E8FD2288888F800AD2ACD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FD1288888F800AD2ACD /* LoginView.swift */; };
+		B53E8FD428888D3200AD2ACD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FD328888D3200AD2ACD /* LoginViewModel.swift */; };
 		B5D811322884AB8A00BA276D /* ItemDrawingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D811312884AB8A00BA276D /* ItemDrawingViewModel.swift */; };
 		B5DA93E0287F9AB200E2A1E7 /* IWishApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DA93DF287F9AB200E2A1E7 /* IWishApp.swift */; };
 		B5DA93E4287F9AB300E2A1E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5DA93E3287F9AB300E2A1E7 /* Assets.xcassets */; };
@@ -22,6 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B53E8FCB2888789900AD2ACD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B53E8FD1288888F800AD2ACD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		B53E8FD328888D3200AD2ACD /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B5D811312884AB8A00BA276D /* ItemDrawingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDrawingViewModel.swift; sourceTree = "<group>"; };
 		B5DA93DC287F9AB200E2A1E7 /* IWish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IWish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5DA93DF287F9AB200E2A1E7 /* IWishApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWishApp.swift; sourceTree = "<group>"; };
@@ -42,12 +49,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B53E8FCF28887ADD00AD2ACD /* FirebaseService in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B53E8FD0288888CD00AD2ACD /* SignInView */ = {
+			isa = PBXGroup;
+			children = (
+				B53E8FD1288888F800AD2ACD /* LoginView.swift */,
+				B53E8FD328888D3200AD2ACD /* LoginViewModel.swift */,
+			);
+			path = SignInView;
+			sourceTree = "<group>";
+		};
 		B5DA93D3287F9AB200E2A1E7 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				B5DA93E3287F9AB300E2A1E7 /* Assets.xcassets */,
+				B53E8FCB2888789900AD2ACD /* GoogleService-Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -95,6 +113,7 @@
 		B5DA93EE287F9B4900E2A1E7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B53E8FD0288888CD00AD2ACD /* SignInView */,
 				B5EEC424288730360096BA1A /* ViewModels */,
 				B5DA93FE287FE33F00E2A1E7 /* CreateWishList.swift */,
 			);
@@ -164,6 +183,9 @@
 			dependencies = (
 			);
 			name = IWish;
+			packageProductDependencies = (
+				B53E8FCE28887ADD00AD2ACD /* FirebaseService */,
+			);
 			productName = IWish;
 			productReference = B5DA93DC287F9AB200E2A1E7 /* IWish.app */;
 			productType = "com.apple.product-type.application";
@@ -192,6 +214,9 @@
 				Base,
 			);
 			mainGroup = B5DA93D3287F9AB200E2A1E7;
+			packageReferences = (
+				B53E8FCD28887ADD00AD2ACD /* XCRemoteSwiftPackageReference "firebaseservice" */,
+			);
 			productRefGroup = B5DA93DD287F9AB200E2A1E7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -208,6 +233,7 @@
 			files = (
 				B5DA93E7287F9AB300E2A1E7 /* Preview Assets.xcassets in Resources */,
 				B5DA93E4287F9AB300E2A1E7 /* Assets.xcassets in Resources */,
+				B53E8FCC2888789900AD2ACD /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,7 +252,9 @@
 				B5D811322884AB8A00BA276D /* ItemDrawingViewModel.swift in Sources */,
 				B5DA93E0287F9AB200E2A1E7 /* IWishApp.swift in Sources */,
 				B5DA93FD287F9C0C00E2A1E7 /* ItemView.swift in Sources */,
+				B53E8FD428888D3200AD2ACD /* LoginViewModel.swift in Sources */,
 				B5DA93F7287F9BD700E2A1E7 /* WishListView.swift in Sources */,
+				B53E8FD2288888F800AD2ACD /* LoginView.swift in Sources */,
 				B5DA93FB287F9BFC00E2A1E7 /* ItemViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +294,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -326,6 +355,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -356,6 +386,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"IWish/Preview Content\"";
+				DEVELOPMENT_TEAM = 6LB3G448JH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Allow to save your drawing";
@@ -386,6 +417,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"IWish/Preview Content\"";
+				DEVELOPMENT_TEAM = 6LB3G448JH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Allow to save your drawing";
@@ -430,6 +462,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B53E8FCD28887ADD00AD2ACD /* XCRemoteSwiftPackageReference "firebaseservice" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rebeloper/firebaseservice.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B53E8FCE28887ADD00AD2ACD /* FirebaseService */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B53E8FCD28887ADD00AD2ACD /* XCRemoteSwiftPackageReference "firebaseservice" */;
+			productName = FirebaseService;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B5DA93D4287F9AB200E2A1E7 /* Project object */;
 }

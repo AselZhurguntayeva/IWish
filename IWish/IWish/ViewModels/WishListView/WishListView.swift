@@ -38,10 +38,12 @@ struct WishListView: View {
                     ForEach($wishListViewModel.wishLists) { item in NavigationLink {
                         ItemView(wishList: item, wishListViewModel: wishListViewModel)
                     } label: {
-                        VStack(alignment:.trailing) {
+                        VStack(alignment:.leading) {
                             Text(item.title.wrappedValue)
                                 .font(.headline)
                             Image(systemName: "gift")
+                                .resizable()
+                                .scaledToFit()
                                 .frame(width: 150, height: 150, alignment: .trailing)
                                 .background(.red)
                             Text("Total:\(item.items.count) items")
@@ -54,7 +56,7 @@ struct WishListView: View {
                 }
             }
             
-        }
+        }.navigationBarHidden(true)
     }
     func setupViews() {
         wishListViewModel.createWishList(WishList(title: title))
@@ -64,7 +66,12 @@ struct WishListView: View {
 
 struct WishListView_Previews: PreviewProvider {
     static var previews: some View {
-        WishListView()
+        Group {
+            WishListView()
+            WishListView()
+                .previewInterfaceOrientation(.landscapeLeft)
+            WishListView()
+        }
     }
 }
 

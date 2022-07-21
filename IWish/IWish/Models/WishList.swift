@@ -12,7 +12,7 @@ struct WishList: Identifiable, Equatable {
     var title: String
     var items: [Item] = []
     var id: String = UUID().uuidString
-    var date = Date()
+    var date: Date = Date()
     
     
     static func ==(lhs: WishList, rhs: WishList) -> Bool {
