@@ -11,6 +11,7 @@
 		B53E8FCF28887ADD00AD2ACD /* FirebaseService in Frameworks */ = {isa = PBXBuildFile; productRef = B53E8FCE28887ADD00AD2ACD /* FirebaseService */; };
 		B53E8FD2288888F800AD2ACD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FD1288888F800AD2ACD /* LoginView.swift */; };
 		B53E8FD428888D3200AD2ACD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FD328888D3200AD2ACD /* LoginViewModel.swift */; };
+		B53E8FD6288A580100AD2ACD /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FD5288A580100AD2ACD /* ForgotPasswordView.swift */; };
 		B5D811322884AB8A00BA276D /* ItemDrawingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D811312884AB8A00BA276D /* ItemDrawingViewModel.swift */; };
 		B5DA93E0287F9AB200E2A1E7 /* IWishApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DA93DF287F9AB200E2A1E7 /* IWishApp.swift */; };
 		B5DA93E4287F9AB300E2A1E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5DA93E3287F9AB300E2A1E7 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		B53E8FCB2888789900AD2ACD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B53E8FD1288888F800AD2ACD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B53E8FD328888D3200AD2ACD /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		B53E8FD5288A580100AD2ACD /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		B5D811312884AB8A00BA276D /* ItemDrawingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDrawingViewModel.swift; sourceTree = "<group>"; };
 		B5DA93DC287F9AB200E2A1E7 /* IWish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IWish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5DA93DF287F9AB200E2A1E7 /* IWishApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWishApp.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			children = (
 				B53E8FD1288888F800AD2ACD /* LoginView.swift */,
 				B53E8FD328888D3200AD2ACD /* LoginViewModel.swift */,
+				B53E8FD5288A580100AD2ACD /* ForgotPasswordView.swift */,
 			);
 			path = SignInView;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				B5D811322884AB8A00BA276D /* ItemDrawingViewModel.swift in Sources */,
 				B5DA93E0287F9AB200E2A1E7 /* IWishApp.swift in Sources */,
 				B5DA93FD287F9C0C00E2A1E7 /* ItemView.swift in Sources */,
+				B53E8FD6288A580100AD2ACD /* ForgotPasswordView.swift in Sources */,
 				B53E8FD428888D3200AD2ACD /* LoginViewModel.swift in Sources */,
 				B5DA93F7287F9BD700E2A1E7 /* WishListView.swift in Sources */,
 				B53E8FD2288888F800AD2ACD /* LoginView.swift in Sources */,
