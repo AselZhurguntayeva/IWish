@@ -12,6 +12,9 @@
 		B53E8FD2288888F800AD2ACD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FD1288888F800AD2ACD /* LoginView.swift */; };
 		B53E8FD428888D3200AD2ACD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FD328888D3200AD2ACD /* LoginViewModel.swift */; };
 		B53E8FD6288A580100AD2ACD /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FD5288A580100AD2ACD /* ForgotPasswordView.swift */; };
+		B53E8FDB288E4A7700AD2ACD /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FDA288E4A7600AD2ACD /* ActivityController.swift */; };
+		B53E8FDE288E617500AD2ACD /* GetShareableInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FDD288E617500AD2ACD /* GetShareableInfo.swift */; };
+		B53E8FE0288E643A00AD2ACD /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FDF288E643A00AD2ACD /* ItemDetailViewModel.swift */; };
 		B5D811322884AB8A00BA276D /* ItemDrawingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D811312884AB8A00BA276D /* ItemDrawingViewModel.swift */; };
 		B5DA93E0287F9AB200E2A1E7 /* IWishApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DA93DF287F9AB200E2A1E7 /* IWishApp.swift */; };
 		B5DA93E4287F9AB300E2A1E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5DA93E3287F9AB300E2A1E7 /* Assets.xcassets */; };
@@ -31,6 +34,9 @@
 		B53E8FD1288888F800AD2ACD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B53E8FD328888D3200AD2ACD /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B53E8FD5288A580100AD2ACD /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		B53E8FDA288E4A7600AD2ACD /* ActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
+		B53E8FDD288E617500AD2ACD /* GetShareableInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShareableInfo.swift; sourceTree = "<group>"; };
+		B53E8FDF288E643A00AD2ACD /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModel.swift; sourceTree = "<group>"; };
 		B5D811312884AB8A00BA276D /* ItemDrawingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDrawingViewModel.swift; sourceTree = "<group>"; };
 		B5DA93DC287F9AB200E2A1E7 /* IWish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IWish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5DA93DF287F9AB200E2A1E7 /* IWishApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWishApp.swift; sourceTree = "<group>"; };
@@ -68,6 +74,22 @@
 			path = SignInView;
 			sourceTree = "<group>";
 		};
+		B53E8FD9288E4A5E00AD2ACD /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				B53E8FDA288E4A7600AD2ACD /* ActivityController.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		B53E8FDC288E615900AD2ACD /* UserCase */ = {
+			isa = PBXGroup;
+			children = (
+				B53E8FDD288E617500AD2ACD /* GetShareableInfo.swift */,
+			);
+			path = UserCase;
+			sourceTree = "<group>";
+		};
 		B5DA93D3287F9AB200E2A1E7 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +109,8 @@
 		B5DA93DE287F9AB200E2A1E7 /* IWish */ = {
 			isa = PBXGroup;
 			children = (
+				B53E8FDC288E615900AD2ACD /* UserCase */,
+				B53E8FD9288E4A5E00AD2ACD /* Activity */,
 				B5DA93F1287F9B8400E2A1E7 /* Models */,
 				B5DA93EE287F9B4900E2A1E7 /* View */,
 				B5DA93DF287F9AB200E2A1E7 /* IWishApp.swift */,
@@ -128,6 +152,7 @@
 			children = (
 				B5DA93FC287F9C0C00E2A1E7 /* ItemView.swift */,
 				B5DA93FA287F9BFC00E2A1E7 /* ItemViewModel.swift */,
+				B53E8FDF288E643A00AD2ACD /* ItemDetailViewModel.swift */,
 			);
 			path = ItemView;
 			sourceTree = "<group>";
@@ -249,6 +274,9 @@
 			files = (
 				B5DA93F3287F9BB200E2A1E7 /* WishList.swift in Sources */,
 				B5DA93F5287F9BBC00E2A1E7 /* Item.swift in Sources */,
+				B53E8FE0288E643A00AD2ACD /* ItemDetailViewModel.swift in Sources */,
+				B53E8FDB288E4A7700AD2ACD /* ActivityController.swift in Sources */,
+				B53E8FDE288E617500AD2ACD /* GetShareableInfo.swift in Sources */,
 				B5DA93FF287FE33F00E2A1E7 /* CreateWishList.swift in Sources */,
 				B5DA93F9287F9BEA00E2A1E7 /* WishListModel.swift in Sources */,
 				B5EEC427288730CA0096BA1A /* ItemDrawingView.swift in Sources */,

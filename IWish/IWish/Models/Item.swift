@@ -12,18 +12,18 @@ class Item: Identifiable, Equatable, ObservableObject {
    
     var itemName: String
     var quantity: String
-    var price: String
-    var isLiked: Bool 
+    var price: String?
+//    var isLiked: Bool
     var id: String = UUID().uuidString
-    var image: String?
+//    var image: String?
     
-    init(itemName: String, quantity: String, price: String, isLiked: Bool = false, id: String = UUID().uuidString, image: String?) {
+    init(itemName: String, quantity: String, price: String, id: String = UUID().uuidString) {
         self.itemName = itemName
         self.quantity = quantity
         self.price = price
-        self.isLiked = isLiked
+//        self.isLiked = isLiked
         self.id = id
-        self.image = image
+//        self.image = image
     }
 }
     extension Item {

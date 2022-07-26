@@ -12,6 +12,9 @@ struct WishListView: View {
     //@StateObject private var wishListViewModel = WishListViewModel()
     @State private var title: String = ""
     @State var showSheet: Bool = false
+    @State var date: Date = Date()
+    
+//    @State private var isShowingShareActivity = false
     
     var body: some View {
         
@@ -28,40 +31,67 @@ struct WishListView: View {
                             showSheet.toggle()
                         }, label: {
                             Image(systemName: "plus")
+                                .foregroundColor(.primary)
                         })
-                        .fullScreenCover(isPresented: $showSheet, content: { CreateWishList( wishListViewModel: wishListViewModel)
+                        .fullScreenCover(isPresented: $showSheet, content: { CreateWishList( date: date, wishListViewModel: wishListViewModel)
                         })
                     }
                 }
                 Spacer()
-                List {
-                    ForEach($wishListViewModel.wishLists) { item in NavigationLink {
-                        ItemView(wishList: item, wishListViewModel: wishListViewModel)
-                    } label: {
-                        VStack(alignment:.leading) {
-                            Text(item.title.wrappedValue)
-                                .font(.headline)
-                            Image(systemName: "gift")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 150, height: 150, alignment: .trailing)
-                                .background(.red)
-                            Text("Total:\(item.items.count) items")
-                                .font(.subheadline)
+                ZStack(alignment: .trailing) {
+                    List {
+                        ForEach($wishListViewModel.wishLists) { item in NavigationLink {
+                            ItemView(wishList: item, wishListViewModel: wishListViewModel)
+                        } label: {
+                            VStack(alignment:.leading) {
+                                Text(item.title.wrappedValue)
+                                    .font(.headline)
+                                
+                               
+                                Image(systemName: "gift")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 120, height: 120, alignment: .trailing)
+                                    .background(.red)
+                                Text("Total:\(item.items.count) items")
+                                    .font(.subheadline)
+                                Text("")
+                            }
+                            .padding()
+    //                        HStack {
+    //                            Button {
+    //                                isShowingShareActivity.toggle()
+    //                            } label: {
+    //                                Image(systemName: "square.and.arrow.up")
+    //                            }
+    //                        }
                         }
-                        .padding()
+    //                    .navigationBarItems(trailing:
+    //                        Button(action: {
+    //                        isShowingShareActivity.toggle()
+    //                    }, label: {
+    //                        Image(systemName: "square.and.arrow.up")
+    //                    })
+    //                    )
+                            
+                    }
+                        .onDelete(perform: wishListViewModel.deleteWishList(at:))
                     }
                 }
-                    .onDelete(perform: wishListViewModel.deleteWishList(at:))
-                }
             }
-            
+//            .navigationBarItems(trailing:
+//                Button(action: {
+//                isShowingShareActivity.toggle()
+//            }, label: {
+//                Image(systemName: "square.and.arrow.up")
+//            })
+//            )
         }.navigationBarHidden(true)
     }
-    func setupViews() {
-        wishListViewModel.createWishList(WishList(title: title))
-        
-    }
+//    func setupViews() {
+//        wishListViewModel.createWishList(title: title, date: date)
+//        
+//    }
 }
 
 struct WishListView_Previews: PreviewProvider {

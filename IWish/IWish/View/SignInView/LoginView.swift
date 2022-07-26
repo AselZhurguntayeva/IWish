@@ -161,10 +161,10 @@ struct SignInView: View {
 //                                .sheet(isPresented: $showForgotPassword) {
 //                                    ForgotPasswordView()
                             }.padding(.top, 20)
-                    Button {
+                    Button(action: {
 //                                viewModel.verify()
                         self.verify()
-                    } 
+                    }) {
 //                                    guard !email.isEmpty, !password.isEmpty else {
 //                                        return
 //                                    }
@@ -185,17 +185,17 @@ struct SignInView: View {
 //                                    })
 //
 //                                    .navigationBarHidden(true)
-//                        NavigationLink(destination:WishListView(),
+                        NavigationLink(destination:WishListView(),
                     label:{
-                            
                             Text("Log in")
                                 .foregroundColor(.black)
                                 .padding(.vertical)
                                 .frame(width: UIScreen.main.bounds.width - 50)
-                        }
+                        })
                             .background(Color(.systemGray5))
                             .cornerRadius(10)
                             .padding(.top)
+                    }
                            
                     HStack{
                         Button(action: {

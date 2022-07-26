@@ -12,14 +12,14 @@ struct CreateWishList: View {
     @Environment (\.presentationMode) var presentationMode
     @Environment(\.dismiss) private var dismiss
     
-    @State var selectedDate: Date = .now
-    @State private var titleText: String = ""
-    @State private var date: String = ""
+    @State var selectedDate: Date = Date()
+    @State var titleText: String = ""
+    @State var date: Date
     //@StateObject private var wishListViewModel = WishListViewModel()
     @ObservedObject var wishListViewModel: WishListViewModel
     var wishList: WishList?
     
-    let startingDate: Date = Date()
+    let startingDate: Date = .now
     
     var body: some View {
         NavigationView {
@@ -71,9 +71,9 @@ struct CreateWishList: View {
                         let title = titleText
 //                    , !title.isEmpty
 //                    else { return }
-                        let wishList = WishList(title: title)
+                    let wishList = WishList(title: title)
                 
-                        wishListViewModel.createWishList(wishList)
+                    wishListViewModel.createWishList(title: title, date: date, wishList: wishList, wishListViewModel: wishListViewModel)
 //                    } else { return }
                    dismiss()
                 } label: {
@@ -119,7 +119,7 @@ struct CreateWishList: View {
 
 struct CreateWishList_Previews: PreviewProvider {
     static var previews: some View {
-        CreateWishList(wishListViewModel: WishListViewModel())
+        CreateWishList(date: Date(), wishListViewModel: WishListViewModel())
     }
 }
 
