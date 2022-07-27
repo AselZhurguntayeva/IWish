@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WishList: Identifiable, Equatable {
+struct WishList: Identifiable, Equatable, Hashable, Codable {
     
     var title: String
     var items: [Item] = []

@@ -17,12 +17,14 @@ struct ItemView: View {
     @State private var isLiked = false
 //    @State private var isShowingShareActivity = false
     @State private var showShareSheet = false
+    
+    @State var items: [Any] = []
    
     @Environment(\.dismiss) private var dismiss
     
     @StateObject private var itemViewModel = ItemViewModel()
     
-    @Binding var wishList: WishList
+    var wishList: WishList
     
     var wishListViewModel: WishListViewModel
     
@@ -33,7 +35,7 @@ struct ItemView: View {
                         TextField("Item Name", text: $itemName)
                             .padding(10)
                             .overlay(Rectangle()
-                            .frame( height:       3).padding(.top, 45))
+                            .frame( height:3).padding(.top, 45))
                         HStack {
                             TextField("Quantity", text: $quantity)
                                 .padding(10)
@@ -52,6 +54,8 @@ struct ItemView: View {
                 }
                 .navigationTitle(wishList.title)
                 .navigationBarTitleDisplayMode(.inline)
+               
+                
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button(action: {
@@ -68,7 +72,12 @@ struct ItemView: View {
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button(action: {
-                                self.showShareSheet = true
+                                
+                                items.append(itemName)
+                                items.append(quantity)
+                                items.append(price)
+//                                self.showShareSheet = true
+                                showShareSheet.toggle()
 //                                isShowingShareActivity.toggle()
                             }, label: {
                                 Image(systemName: "square.and.arrow.up")
@@ -78,9 +87,11 @@ struct ItemView: View {
 //                                    let items: [Any] = []
 //                ActivityController(activityItems: items)
 //                            })
-                            .sheet(isPresented: $showShareSheet) {
-                                ShareSheet(activityItems: ["Here is my \(wishList.title) wishlist"])
-                            }
+                            .sheet(isPresented: $showShareSheet, content: {
+                                
+                                ShareSheet(items: ["Here is my \(wishList.title) wishlist"])
+                            })
+                            
                         }
                     }
                 
@@ -149,11 +160,11 @@ struct ItemView: View {
 
 struct ItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemView(wishList: .constant(
+        ItemView(wishList:
             WishList(title: "Christmas",
                items: [
                 Item(itemName: "Dayson Hair Dryer", quantity: "1", price: "200")
-               ])), wishListViewModel: WishListViewModel())
+               ]), wishListViewModel: WishListViewModel())
     }
 }
 
@@ -182,7 +193,7 @@ struct cellBody: View {
         Text(item.itemName)
           .foregroundColor(.primary)
           .font(.headline)
-      }
+    }
       Spacer()
         Text(item.quantity)
           .foregroundColor(.primary)

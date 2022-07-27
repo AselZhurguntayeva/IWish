@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class Item: Identifiable, Equatable, ObservableObject {
+struct Item: Identifiable, Equatable, Hashable, Codable {
    
     var itemName: String
     var quantity: String
@@ -17,14 +17,14 @@ class Item: Identifiable, Equatable, ObservableObject {
     var id: String = UUID().uuidString
 //    var image: String?
     
-    init(itemName: String, quantity: String, price: String, id: String = UUID().uuidString) {
-        self.itemName = itemName
-        self.quantity = quantity
-        self.price = price
-//        self.isLiked = isLiked
-        self.id = id
-//        self.image = image
-    }
+//    init(itemName: String, quantity: String, price: String, id: String = UUID().uuidString) {
+//        self.itemName = itemName
+//        self.quantity = quantity
+//        self.price = price
+////        self.isLiked = isLiked
+//        self.id = id
+////        self.image = image
+//    }
 }
     extension Item {
        static func  == (lhs: Item, rhs: Item) -> Bool {

@@ -18,7 +18,7 @@ struct LoginView: View {
         NavigationView{
             VStack{
                 if self.status {
-                    Homescreen()
+                    WishListView()
                 }
                 else{
                     ZStack{
@@ -185,13 +185,13 @@ struct SignInView: View {
 //                                    })
 //
 //                                    .navigationBarHidden(true)
-                        NavigationLink(destination:WishListView(),
-                    label:{
+//                        NavigationLink(destination:WishListView(selectedDate: Date()),
+//                    label:{
                             Text("Log in")
                                 .foregroundColor(.black)
                                 .padding(.vertical)
                                 .frame(width: UIScreen.main.bounds.width - 50)
-                        })
+//                        }
                             .background(Color(.systemGray5))
                             .cornerRadius(10)
                             .padding(.top)

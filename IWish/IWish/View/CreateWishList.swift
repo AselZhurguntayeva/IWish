@@ -12,9 +12,9 @@ struct CreateWishList: View {
     @Environment (\.presentationMode) var presentationMode
     @Environment(\.dismiss) private var dismiss
     
-    @State var selectedDate: Date = Date()
-    @State var titleText: String = ""
-    @State var date: Date
+    @State var date: Date = Date ()
+    @State var title: String = ""
+//    @State var date: Date
     //@StateObject private var wishListViewModel = WishListViewModel()
     @ObservedObject var wishListViewModel: WishListViewModel
     var wishList: WishList?
@@ -36,7 +36,7 @@ struct CreateWishList: View {
                 ZStack {
                     Rectangle().fill(.ultraThinMaterial)
                         .cornerRadius(12)
-                    TextField("i.e. Christmas", text: $titleText)
+                    TextField("i.e. Christmas", text: $title)
                         .padding()
                 }.frame(width: UIScreen.main.bounds.width - 30, height: 55)
                 
@@ -49,15 +49,16 @@ struct CreateWishList: View {
                             .cornerRadius(12)
                     }
                     .frame(width: UIScreen.main.bounds.width - 30, height: 55, alignment: .leading)
-                    //                        Text(selectedDate, style: .date)
+                    Text(date, style: .date)
                     
                     ZStack {
                         Rectangle().fill(.ultraThinMaterial)
                             .cornerRadius(12)
                             .frame(width: UIScreen.main.bounds.width - 30, height: 300)
-                        DatePicker("When is your occasion?", selection: $selectedDate, in: startingDate..., displayedComponents: [.date])
+                        DatePicker("When is your occasion?", selection: $date, in: startingDate..., displayedComponents: [.date])
                             .datePickerStyle(GraphicalDatePickerStyle())
                             .frame(width: 300, height: 300)
+                       
                     }
                     Spacer()
                     
@@ -68,12 +69,12 @@ struct CreateWishList: View {
 //                    {
 //                        prepareForCreateWishList(title: titleText, date: selectedDate)
 //                    guard
-                        let title = titleText
+                        let title = title
 //                    , !title.isEmpty
 //                    else { return }
-                    let wishList = WishList(title: title)
+                   
                 
-                    wishListViewModel.createWishList(title: title, date: date, wishList: wishList, wishListViewModel: wishListViewModel)
+                    wishListViewModel.createWishList(title: title, date: date)
 //                    } else { return }
                    dismiss()
                 } label: {
@@ -103,7 +104,7 @@ struct CreateWishList: View {
         
         .onAppear {
             if let wishList = wishList {
-                titleText = wishList.title
+                title = wishList.title
             }
         }
     }
@@ -119,7 +120,7 @@ struct CreateWishList: View {
 
 struct CreateWishList_Previews: PreviewProvider {
     static var previews: some View {
-        CreateWishList(date: Date(), wishListViewModel: WishListViewModel())
+        CreateWishList(wishListViewModel: WishListViewModel())
     }
 }
 

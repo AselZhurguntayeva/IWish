@@ -6,13 +6,18 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct WishListView: View {
     @ObservedObject var wishListViewModel = WishListViewModel()
-    //@StateObject private var wishListViewModel = WishListViewModel()
+    
     @State private var title: String = ""
     @State var showSheet: Bool = false
     @State var date: Date = Date()
+    @State private var showingPopover = false
+    
+    @Environment(\.dismiss) private var dismiss
+    @Environment (\.presentationMode) var presentationMode
     
 //    @State private var isShowingShareActivity = false
     
@@ -33,20 +38,22 @@ struct WishListView: View {
                             Image(systemName: "plus")
                                 .foregroundColor(.primary)
                         })
-                        .fullScreenCover(isPresented: $showSheet, content: { CreateWishList( date: date, wishListViewModel: wishListViewModel)
+                        .fullScreenCover(isPresented: $showSheet, content: { CreateWishList(wishListViewModel: wishListViewModel)
                         })
                     }
                 }
                 Spacer()
                 ZStack(alignment: .trailing) {
                     List {
-                        ForEach($wishListViewModel.wishLists) { item in NavigationLink {
+                        ForEach(wishListViewModel.wishLists, id: \.self) { (item: WishList) in NavigationLink {
                             ItemView(wishList: item, wishListViewModel: wishListViewModel)
                         } label: {
                             VStack(alignment:.leading) {
-                                Text(item.title.wrappedValue)
+                                Text(item.title)
                                     .font(.headline)
-                                
+                               
+                                Text(wishListViewModel.getDateOfWishList(date: item.date))
+                                    .font(.subheadline)
                                
                                 Image(systemName: "gift")
                                     .resizable()
@@ -55,7 +62,7 @@ struct WishListView: View {
                                     .background(.red)
                                 Text("Total:\(item.items.count) items")
                                     .font(.subheadline)
-                                Text("")
+                                
                             }
                             .padding()
     //                        HStack {
@@ -74,32 +81,35 @@ struct WishListView: View {
     //                    })
     //                    )
                             
-                    }
+                        }
                         .onDelete(perform: wishListViewModel.deleteWishList(at:))
-                    }
-                }
             }
+        }
+    }
 //            .navigationBarItems(trailing:
 //                Button(action: {
-//                isShowingShareActivity.toggle()
+////                isShowingShareActivity.toggle()
 //            }, label: {
-//                Image(systemName: "square.and.arrow.up")
+////                Image(systemName: "square.and.arrow.up")
 //            })
 //            )
+            .navigationBarItems(leading:
+        Button(action: {
+                try! Auth.auth().signOut()
+                UserDefaults.standard.set(false, forKey: "status")
+                NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+                 }, label: {
+            Text("Log out")
+                .foregroundColor(.black)
+        })
+        )
         }.navigationBarHidden(true)
     }
-//    func setupViews() {
-//        wishListViewModel.createWishList(title: title, date: date)
-//        
-//    }
 }
-
+    
 struct WishListView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            WishListView()
-            WishListView()
-                .previewInterfaceOrientation(.landscapeLeft)
             WishListView()
         }
     }
