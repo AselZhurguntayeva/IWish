@@ -22,11 +22,14 @@ struct ItemView: View {
    
     @Environment(\.dismiss) private var dismiss
     
-    @StateObject private var itemViewModel = ItemViewModel()
+//    @StateObject private var itemViewModel = ItemViewModel()
+    @ObservedObject var itemViewModel = ItemViewModel()
     
     var wishList: WishList
+    @State var displayItems: [Item] = []
+    @State var triggerUpdate: Bool = false
     
-    var wishListViewModel: WishListViewModel
+    @ObservedObject var wishListViewModel: WishListViewModel
     
     var body: some View {
         NavigationView {
@@ -89,23 +92,17 @@ struct ItemView: View {
 //                            })
                             .sheet(isPresented: $showShareSheet, content: {
                                 
-                                ShareSheet(items: ["Here is my \(wishList.title) wishlist"])
+                                ShareSheet(items: ["I am having a \(wishList.title) soon!"])
                             })
                             
                         }
                     }
                 
                 List {
-                    ForEach(wishList.items)
+                    ForEach(displayItems)
                     { item in
                         cellBody( item: item, itemViewModel: itemViewModel)
-//                        Button {
-//                            itemViewModel.toggleIsLiked(for: item)
-////                            print(item.isLiked)
-////                            print (item.itemName)
-//                        } label: {
-//                            Image(systemName: item.isLiked ? "heart" : "heart.fill")
-//                        }
+//
                     }
                     .onDelete { indexSet in
                         itemViewModel.deleteItem(wishList: wishList, wishListViewModel: wishListViewModel, at: indexSet)
@@ -120,7 +117,7 @@ struct ItemView: View {
                             itemName = ""
                             quantity = ""
                             price = ""
-                            
+                            self.triggerUpdate.toggle()
                         } label: {
                             ZStack {
 //                                Rectangle().fill(.ultraThinMaterial)
@@ -131,6 +128,16 @@ struct ItemView: View {
                             }
                         }.frame(width: UIScreen.main.bounds.width - 80, height: 55)
                     }
+                }
+            }.onAppear {
+                self.displayItems = wishList.items
+            }
+            .onChange(of: triggerUpdate) { update in
+                if update {
+                    self.triggerUpdate.toggle()
+                    self.displayItems = (wishListViewModel.wishLists.first(where: { wishList in
+                        wishList.id == self.wishList.id
+                    }))?.items ?? []
                 }
             }
         }
@@ -170,7 +177,7 @@ struct ItemView_Previews: PreviewProvider {
 
 struct cellBody: View {
 
-  var item: Item
+  @State var item: Item
     
     @ObservedObject var itemViewModel: ItemViewModel
     

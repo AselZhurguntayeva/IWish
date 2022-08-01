@@ -9,7 +9,8 @@ import Foundation
 
 class WishListViewModel: ObservableObject {
     
-    @Published var wishLists:  [WishList] = []
+    @Published var wishLists:  [WishList] = ModelPersistence.shared.loadFromPersistenceStore()
+    
 //    @Published var date: Date = Date()
     // CRUD
 //    func createWishList(_ wishList: WishList) {
@@ -27,17 +28,21 @@ class WishListViewModel: ObservableObject {
             wishList.date = date
         }
         wishLists.append(wishList)
+        ModelPersistence.shared.saveToPersistenceStore(wishLists: wishLists)
+        
        
     }
     
-    func updateWishList(_ wishList: WishList) {
-        guard let index = wishLists.firstIndex(where: { $0.id == wishList.id }) else
-        {return}
-        wishLists[index] = wishList
-    }
+//    func updateWishList(_ wishList: WishList) {
+//        guard let index = wishLists.firstIndex(where: { $0.id == wishList.id }) else
+//        {return}
+//        wishLists[index] = wishList
+//        saveToPersistenceStore()
+//    }
     
     func deleteWishList(at indexSet: IndexSet) {
         wishLists.remove(atOffsets: indexSet)
+        ModelPersistence.shared.saveToPersistenceStore(wishLists: wishLists)
     }
     
     func getDateOfWishList(date: Date) -> String {
@@ -48,33 +53,9 @@ class WishListViewModel: ObservableObject {
             return formatter
         }
         return dateFormatter.string(from: date)
+        
     }
     
-    // MARK: - Persistence
-    // create a place to store data, save data, load data,
     
-    func createPersistenceStore () -> URL { // URL - address in memory
-        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let fileURL = url[0].appendingPathComponent("WishList.json")
-        return fileURL
-    }
-    
-    func saveToPersistenceStore() {
-        do {
-            let data = try JSONEncoder().encode(wishLists) // converting our song array to json data
-            try data.write(to: createPersistenceStore())// decoding
-        } catch {
-            print("Error encoding.")
-        }
-    }
-    func loadFromPersistenceStore() {
-        do {
-            let data = try Data(contentsOf: createPersistenceStore())
-            //                        decode as,           decode from
-            wishLists = try JSONDecoder().decode([WishList].self, from: data)
-        } catch {
-            print("Error decoding.")
-        }
-    }
 }
 

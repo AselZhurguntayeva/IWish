@@ -26,7 +26,10 @@ class ItemViewModel:ObservableObject {
         let item = Item(itemName: itemName, quantity: quantity, price: price)
         guard let index = wishListViewModel.wishLists.firstIndex(of: wishList) else { return }
             wishListViewModel.wishLists[index].items.append(item)
+        ModelPersistence.shared.saveToPersistenceStore(wishLists: wishListViewModel.wishLists)
     }
+    
+    
 //    func updateItem(item: Item, wishList: WishList, wishListViewModel: WishListViewModel) {
 //        guard let index = items.firstIndex(of: item) else {return}
 //
@@ -35,6 +38,7 @@ class ItemViewModel:ObservableObject {
     func deleteItem(wishList: WishList, wishListViewModel:WishListViewModel, at indexSet:IndexSet) {
         guard let index = wishListViewModel.wishLists.firstIndex(of: wishList) else { return }
         wishListViewModel.wishLists[index].items.remove(atOffsets: indexSet)
+        ModelPersistence.shared.saveToPersistenceStore(wishLists: wishListViewModel.wishLists)
     }
 //    func toggleIsLiked(for item: Item) {
 //       guard let index = items.firstIndex(of: item) else { return }
@@ -43,31 +47,5 @@ class ItemViewModel:ObservableObject {
 //        
 //    }
     
-    // MARK: - Persistence
-    // create a place to store data, save data, load data,
-    
-    func createPersistenceStore () -> URL { // URL - address in memory
-        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let fileURL = url[0].appendingPathComponent("Item.json")
-        return fileURL
-    }
-    
-    func saveToPersistenceStore() {
-        do {
-            let data = try JSONEncoder().encode(items) // converting our song array to json data
-            try data.write(to: createPersistenceStore())// decoding
-        } catch {
-            print("Error encoding.")
-        }
-    }
-    func loadFromPersistenceStore() {
-        do {
-            let data = try Data(contentsOf: createPersistenceStore())
-            //                        decode as,           decode from
-            items = try JSONDecoder().decode([Item].self, from: data)
-        } catch {
-            print("Error decoding.")
-        }
-    }
-//    
+//
 }

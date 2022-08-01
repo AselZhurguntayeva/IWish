@@ -96,18 +96,21 @@ struct SignInView: View {
 //    @EnvironmentObject var viewModel : LoginViewModel
     
     var body: some View {
-        NavigationView{
         ZStack{
             ZStack(alignment: .topTrailing) {
                 GeometryReader{_ in
-                    Image("login1")
+                    VStack {
+                    Image("logo")
                         .resizable()
-                        .scaledToFill()
-                        .edgesIgnoringSafeArea(.all)
-                    HStack {
-                       Spacer()
-                VStack {
-                    Spacer()
+                        .scaledToFit()
+                        .padding(.top, 35)
+//                        .edgesIgnoringSafeArea(.all)
+                        Text("Log in to your account")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(.black)
+                            .padding(.top, 35)
+                        
                         TextField("Email Address", text: $email)
                             .disableAutocorrection(true)
                             .autocapitalization(.none)
@@ -115,6 +118,7 @@ struct SignInView: View {
                             .background(Color(.secondarySystemBackground))
                             .cornerRadius(50)
                             .frame(width: UIScreen.main.bounds.width - 40, height: 40)
+                            .padding()
                             
                             
 //                            SecureField("Password", text: $password)
@@ -146,21 +150,22 @@ struct SignInView: View {
                             .background(Color(.secondarySystemBackground))
                             .cornerRadius(50)
                             .frame(width: UIScreen.main.bounds.width - 40, height: 40)
-                            .padding(.top, 25)
+                           
                     HStack{
-                            Spacer()
+                       Spacer()
                             Button{
 //                                    viewModel.reset()
                                     self.reset()
                                 } label: {
                                     Text("Forgot Password")
+                                        .font(.callout)
                                         .font(.system(size: 16, weight: .bold))
                                         .foregroundColor(.black)
-                                }
-    //                            .padding(.top)
+                                } .padding(.trailing, 35)
+
 //                                .sheet(isPresented: $showForgotPassword) {
 //                                    ForgotPasswordView()
-                            }.padding(.top, 20)
+                            }.padding(.top)
                     Button(action: {
 //                                viewModel.verify()
                         self.verify()
@@ -194,22 +199,25 @@ struct SignInView: View {
 //                        }
                             .background(Color(.systemGray5))
                             .cornerRadius(10)
-                            .padding(.top)
-                    }
+//                            .padding(.top)
+                        }
+                    
                            
-                    HStack{
+                        HStack{
+                            Spacer()
                         Button(action: {
                             self.show.toggle()
                         }) {
                             Text("Register")
+                                .font(.callout)
                                 .fontWeight(.bold)
                                 .foregroundColor(Color.black)
                 }
-                        .padding()
+                        .padding(.trailing, 35)
                     }
-            }
+            
         }
-                        .padding(.horizontal, 25)
+//                        .padding(.horizontal, 25)
     }
 //                Button(action: {
 //                    self.show.toggle()
@@ -220,11 +228,12 @@ struct SignInView: View {
 //        }
 //                .padding()
     }
+            Spacer()
             if self.alert{
                 ErrorView(viewModel: LoginViewModel(), alert: self.$alert, error: self.$error)
             }
         }
-    }
+    
 }
     func verify(){
         if self.email != "" && self.password != ""{
@@ -285,7 +294,7 @@ struct SignUpView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                    Image("wallpaper")// need to change pic here
+                    Image("wall2")// need to change pic here
                         .resizable()
                         .scaledToFill()
                         .edgesIgnoringSafeArea(.all)
@@ -317,6 +326,7 @@ struct SignUpView: View {
                                 if self.visible{
                                     TextField("Password", text: $password)
                                     .autocapitalization(.none)
+                                    
                                 }
                                 else{
                                     SecureField("Password", text: $password)
@@ -360,6 +370,7 @@ struct SignUpView: View {
                             .cornerRadius(50)
                             .frame(width: UIScreen.main.bounds.width - 40, height: 40)
                             .padding(.top, 25)
+                       
                         Button{
 //                            viewModel.signUp()
                             self.register()
@@ -369,9 +380,10 @@ struct SignUpView: View {
                             .fontWeight(.semibold)
                             .frame(width:150, height: 50)
                             .cornerRadius(12)
-                            .background(.black)
+                            .background(Color.black.opacity(0.70))
                             .padding(.top)
                         }.padding()
+                        Spacer()
 //                            NavigationLink(destination: WishListView(), label: {
 //                            Text ("Done")
 //                                .foregroundColor(.white)
@@ -391,6 +403,7 @@ struct SignUpView: View {
                             .font(.title)
                             .foregroundColor(Color.black)
                         }
+                    Spacer()
                     }
                 if self.alert{
                     ErrorView(viewModel: LoginViewModel(), alert: self.$alert, error: self.$error)
@@ -437,8 +450,10 @@ struct ErrorView : View {
     @Binding var error : String
     
     var body: some View{
-        GeometryReader{_ in
-            VStack{
+//        GeometryReader{_ in
+    ZStack{
+        
+        VStack{
                 HStack{
                     Text(self.error == "RESET" ? "Message" : "Error")
                         .font(.title)
@@ -459,16 +474,20 @@ struct ErrorView : View {
                         .padding(.vertical)
                         .frame(width: UIScreen.main.bounds.width - 120)
                 }
-                .background(Color.black)
+                .background(Color.black.opacity(0.70))
                 .cornerRadius(10)
                 .padding(.top, 25)
             }
             .padding(.vertical, 25)
             .frame(width: UIScreen.main.bounds.width - 70)
             .background(Color.white)
-            .cornerRadius(15)
-        }
-        .background(Color.black.opacity(0.35).edgesIgnoringSafeArea(.all))
+           
+            .cornerRadius(25)
+
+//            .background(
+//            Rectangle())
+    }.background(Color.black.opacity(0.35).edgesIgnoringSafeArea(.all))
+        
     }
 }
 

@@ -44,27 +44,30 @@ struct WishListView: View {
                 }
                 Spacer()
                 ZStack(alignment: .trailing) {
+                    VStack{
                     List {
                         ForEach(wishListViewModel.wishLists, id: \.self) { (item: WishList) in NavigationLink {
                             ItemView(wishList: item, wishListViewModel: wishListViewModel)
                         } label: {
-                            VStack(alignment:.leading) {
+                            VStack {
                                 Text(item.title)
                                     .font(.headline)
+                                    .padding(.bottom, 5)
                                
                                 Text(wishListViewModel.getDateOfWishList(date: item.date))
                                     .font(.subheadline)
                                
                                 Image(systemName: "gift")
                                     .resizable()
-                                    .scaledToFit()
+                                    .scaledToFill()
                                     .frame(width: 120, height: 120, alignment: .trailing)
-                                    .background(.red)
-                                Text("Total:\(item.items.count) items")
+                                    .padding()
+                                Text("Total: \(item.items.count) wishes")
                                     .font(.subheadline)
+                                    .padding(.leading)
                                 
                             }
-                            .padding()
+                            .padding(.leading)
     //                        HStack {
     //                            Button {
     //                                isShowingShareActivity.toggle()
@@ -80,12 +83,14 @@ struct WishListView: View {
     //                        Image(systemName: "square.and.arrow.up")
     //                    })
     //                    )
-                            
+                        .padding(.leading, 50)
                         }
+                       
                         .onDelete(perform: wishListViewModel.deleteWishList(at:))
             }
+                    }
         }
-    }
+            }
 //            .navigationBarItems(trailing:
 //                Button(action: {
 ////                isShowingShareActivity.toggle()
