@@ -33,6 +33,7 @@ struct ItemDrawingView: View {
                     label: {
                         Image(systemName: "xmark")
                             .font(.title3)
+                            .foregroundColor(Color("color3"))
                     }
                         Button {
                             // saving image
@@ -42,6 +43,7 @@ struct ItemDrawingView: View {
                         label: {
                             Image(systemName: "square.and.arrow.down.fill")
                                 .font(.title)
+                                .foregroundColor(Color("color3"))
                         }
                     }, trailing:
                                             HStack(spacing: 15) {
@@ -51,6 +53,7 @@ struct ItemDrawingView: View {
                         }) {
                             Image(systemName: "pencil.slash")
                                 .font(.title)
+                                .foregroundColor(Color("color3"))
                         }
                         //Menu for InkType and Color
                         Menu {
@@ -100,6 +103,7 @@ struct ItemDrawingView: View {
                             Image("menu")
                                 .resizable()
                                 .frame(width: 32, height: 32)
+                                .foregroundColor(Color("color3"))
                         }
                         
                     })

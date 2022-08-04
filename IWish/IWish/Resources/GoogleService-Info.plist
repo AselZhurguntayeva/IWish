@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>692220135559-kp09380fkubd4v55q4u19rnsssekc2ve.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.692220135559-kp09380fkubd4v55q4u19rnsssekc2ve</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAS28dqWpAEyG_BJ4aQt1Zc-Z-vlcV50AU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>692220135559</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.assel.IWish</string>
+	<key>PROJECT_ID</key>
+	<string>iwish-db2fe</string>
+	<key>STORAGE_BUCKET</key>
+	<string>iwish-db2fe.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:692220135559:ios:136b32a434d43b40ab5022</string>
+</dict>
+</plist>
