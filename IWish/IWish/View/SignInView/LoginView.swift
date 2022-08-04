@@ -43,57 +43,18 @@ struct LoginView: View {
     }
 }
     
-//    @State private var isSignedIn = false
-    
-//    var body: some View {
-//        if isSignedIn {
-//            WishListView()
-//        } else {
-//            content
-//        }
-//    }
-//    var content: some View {
-//    var body: some View {
-//        NavigationView {
-//            if viewModel.signedIn {
-//                VStack {
-//                        Text("You are successfully signed in")
-//                        Button {
-//                            viewModel.signOut()
-//                        } label: {
-//                            Text("Sign Out")
-//                                .frame(width: 100, height: 40)
-//                                .foregroundColor(Color.blue)
-//                                .background(Color.green)
-//                                .padding()
-//                        }
-//                    }
-//                 WishListView() // instead of Vstack if sighedIn to go to WishListView
-//            }
-//                }
-//            else {
-//                SignInView()
-//            }
-//        }
-//        .onAppear{
-//            viewModel.signedIn = viewModel.isSignedIn
-//        }
-//    }
-//}
 struct SignInView: View {
     @State var color = Color.black.opacity(0.7)
     @State var email = ""
     @State var password = ""
     @State var showSheet: Bool = false
-//    @State private var showForgotPassword = false
-    
+
     @State var visible = false
     @Binding var show : Bool
     @State var alert = false
     @State var error = ""
   
     @ObservedObject var viewModel : LoginViewModel
-//    @EnvironmentObject var viewModel : LoginViewModel
     
     var body: some View {
         ZStack{
@@ -104,7 +65,6 @@ struct SignInView: View {
                         .resizable()
                         .scaledToFit()
                         .padding(.top, 35)
-//                        .edgesIgnoringSafeArea(.all)
                         Text("Log in to your account")
                             .font(.title)
                             .fontWeight(.bold)
@@ -118,16 +78,7 @@ struct SignInView: View {
                             .background(Color(.secondarySystemBackground))
                             .cornerRadius(50)
                             .frame(width: UIScreen.main.bounds.width - 40, height: 40)
-                            .padding()
-                            
-                            
-//                            SecureField("Password", text: $password)
-//                                .disableAutocorrection(true)
-//                                .autocapitalization(.none)
-//                                .padding()
-//                                .background(Color(.secondarySystemBackground))
-//                                .cornerRadius(50)
-//                        .frame(width: UIScreen.main.bounds.width - 40, height: 40)
+                            .padding(.bottom)
                     HStack{
                         VStack{
                             if self.visible{
@@ -143,63 +94,35 @@ struct SignInView: View {
                             self.visible.toggle()
                         }) {
                             Image(systemName: self.visible ? "eye.slash.fill" : "eye.fill")
-                                .foregroundColor(.black.opacity(0.7))
+                                .foregroundColor(.primary)
                         }
                     }
                             .padding()
                             .background(Color(.secondarySystemBackground))
                             .cornerRadius(50)
                             .frame(width: UIScreen.main.bounds.width - 40, height: 40)
-                           
-                    HStack{
+                            .padding(.top)
+                            HStack{
                        Spacer()
                             Button{
-//                                    viewModel.reset()
                                     self.reset()
                                 } label: {
                                     Text("Forgot Password")
                                         .font(.callout)
                                         .font(.system(size: 16, weight: .bold))
-                                        .foregroundColor(.black)
+                                        .foregroundColor(.primary)
                                 } .padding(.trailing, 35)
-
-//                                .sheet(isPresented: $showForgotPassword) {
-//                                    ForgotPasswordView()
+                            .padding(.bottom)
                             }.padding(.top)
                     Button(action: {
-//                                viewModel.verify()
                         self.verify()
                     }) {
-//                                    guard !email.isEmpty, !password.isEmpty else {
-//                                        return
-//                                    }
-//                                    viewModel.signIn(email:email, password: password)
-//                                } label: {
-//                                    Text ("Sign In")
-//                                    .foregroundColor(.black)
-//                                    .frame(width: 200, height: 40)
-//                                    .cornerRadius(12)
-//                                    .background(Color(.systemGray5))
-                                    
-//                                    NavigationLink(destination: WishListView(), label: {
-//                                        Text ("Sign In")
-//                                            .foregroundColor(.black)
-//                                            .frame(width: 200, height: 50)
-//                                            .cornerRadius(12)
-//                                        .background(Color(.systemGray5))
-//                                    })
-//
-//                                    .navigationBarHidden(true)
-//                        NavigationLink(destination:WishListView(selectedDate: Date()),
-//                    label:{
                             Text("Log in")
-                                .foregroundColor(.black)
-                                .padding(.vertical)
-                                .frame(width: UIScreen.main.bounds.width - 50)
-//                        }
+                            .foregroundColor(.blue)
+                            .padding(.vertical)
+                            .frame(width: UIScreen.main.bounds.width - 50)
                             .background(Color(.systemGray5))
                             .cornerRadius(10)
-//                            .padding(.top)
                         }
                     
                            
@@ -211,29 +134,19 @@ struct SignInView: View {
                             Text("Register")
                                 .font(.callout)
                                 .fontWeight(.bold)
-                                .foregroundColor(Color.black)
+                                .foregroundColor(.primary)
                 }
                         .padding(.trailing, 35)
                     }
             
         }
-//                        .padding(.horizontal, 25)
     }
-//                Button(action: {
-//                    self.show.toggle()
-//                }) {
-//                    Text("Register")
-//                        .fontWeight(.bold)
-//                        .foregroundColor(Color.black)
-//        }
-//                .padding()
-    }
+}
             Spacer()
             if self.alert{
                 ErrorView(viewModel: LoginViewModel(), alert: self.$alert, error: self.$error)
-            }
         }
-    
+    }
 }
     func verify(){
         if self.email != "" && self.password != ""{
@@ -289,130 +202,109 @@ struct SignUpView: View {
     @State var alert = false
     @State var error = ""
     @ObservedObject var viewModel : LoginViewModel
-//    @EnvironmentObject var viewModel : LoginViewModel
-//
+
     var body: some View {
-        NavigationView {
-            ZStack {
-                    Image("wall2")// need to change pic here
+
+        ZStack(alignment:.topLeading) {
+//            Color("customblue")
+//                .edgesIgnoringSafeArea(.all)
+                VStack {
+                    Image("gift1")
                         .resizable()
-                        .scaledToFill()
-                        .edgesIgnoringSafeArea(.all)
-                ZStack(alignment: .topLeading) {
-                    VStack {
-                        Spacer()
-                        Text("Create Account")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundColor(.black.opacity(0.7))
-                            .padding(.top, 35)
-                        
-                        TextField("Email Address", text: $email)
-                            .disableAutocorrection(true)
-                            .autocapitalization(.none)
-                            .padding()
-                            .background(Color(.secondarySystemBackground))
-                            .cornerRadius(50)
-                            .frame(width: UIScreen.main.bounds.width - 40, height: 40)
-                            .padding(.top, 25)
-                        HStack{
-//                        SecureField("Password", text: $password)
-//                            .disableAutocorrection(true)
-//                            .autocapitalization(.none)
-//                            .padding()
-//                            .background(Color(.secondarySystemBackground))
-                            
-                            VStack{
-                                if self.visible{
-                                    TextField("Password", text: $password)
-                                    .autocapitalization(.none)
-                                    
-                                }
-                                else{
-                                    SecureField("Password", text: $password)
-                                    .autocapitalization(.none)
-                                }
-                            }
-                            Spacer()
-                            Button(action: {
-                                self.visible.toggle()
-                            }) {
-                                Image(systemName: self.visible ? "eye.slash.fill" : "eye.fill")
-                                    .foregroundColor(.black.opacity(0.7))
-                            }
+                        .frame(width: 250, height: 250)
+                    Text("Create account")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(.blue)
+                        .padding(.top, 35)
+                        .padding()
+                    TextField("Email Address", text: $email)
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
+                        .padding()
+                        .background(Color(.secondarySystemBackground))
+                        .cornerRadius(50)
+                        .frame(width: UIScreen.main.bounds.width - 40, height: 40)
+                        .padding()
+                   
+                HStack{
+                    VStack{
+                        if self.visible{
+                            TextField("Password", text: $password)
+                                .autocapitalization(.none)
                         }
-                            .padding()
-                            .background(Color(.secondarySystemBackground))
-                            .cornerRadius(50)
-                            .frame(width: UIScreen.main.bounds.width - 40, height: 40)
-                            .padding(.top, 25)
-                       
-                        HStack {
-                                VStack{
-                                    if self.revisible{
-                                        TextField("Re-enter", text:$repassword)
-                                        .autocapitalization(.none)
-                                    }
-                                    else{
-                                        SecureField("Re-enter", text:$repassword)
-                                        .autocapitalization(.none)
-                                    }
-                                }
-                                Button(action: {
-                                    self.revisible.toggle()
-                                }) {
-                                    Image(systemName: self.revisible ? "eye.slash.fill" : "eye.fill")
-                                        .foregroundColor(.black.opacity(0.7))
-                                }
-                            }
-                            .padding()
-                            .background(Color(.secondarySystemBackground))
-                            .cornerRadius(50)
-                            .frame(width: UIScreen.main.bounds.width - 40, height: 40)
-                            .padding(.top, 25)
-                       
-                        Button{
-//                            viewModel.signUp()
-                            self.register()
-                        }label: {
-                            Text ("Done")
-                            .foregroundColor(.white)
-                            .fontWeight(.semibold)
-                            .frame(width:150, height: 50)
-                            .cornerRadius(12)
-                            .background(Color.black.opacity(0.70))
-                            .padding(.top)
-                        }.padding()
-                        Spacer()
-//                            NavigationLink(destination: WishListView(), label: {
-//                            Text ("Done")
-//                                .foregroundColor(.white)
-//                                .fontWeight(.semibold)
-//                                .frame(width:150, height: 50)
-//                                .cornerRadius(12)
-//                                .background(.black)
-//                            })
-                        Spacer()
+                        else{
+                            SecureField("Password", text: $password)
+                                .autocapitalization(.none)
                         }
-                 
-                    Spacer()
-                    Button(action: {
-                        self.show.toggle()
-                    }) {
-                        Image(systemName: "chevron.left")
-                            .font(.title)
-                            .foregroundColor(Color.black)
-                        }
-                    Spacer()
                     }
-                if self.alert{
-                    ErrorView(viewModel: LoginViewModel(), alert: self.$alert, error: self.$error)
+                    Button(action: {
+                        self.visible.toggle()
+                    }) {
+                        Image(systemName: self.visible ? "eye.slash.fill" : "eye.fill")
+                            .foregroundColor(.primary)
+                    }
                 }
-                Spacer()
-            }
-           Spacer()
+                        .padding()
+                        .background(Color(.secondarySystemBackground))
+                        .cornerRadius(50)
+                        .frame(width: UIScreen.main.bounds.width - 40, height: 40)
+                        .padding()
+
+                HStack{
+                    VStack{
+                        if self.revisible{
+                            TextField("Re-enter", text: $repassword)
+                            .autocapitalization(.none)
+                        }
+                        else{
+                            SecureField("Re-enter", text: $repassword)
+                            .autocapitalization(.none)
+                        }
+                    }
+                        Button{
+                            self.revisible.toggle()
+                            } label: {
+                                Image(systemName: self.revisible ? "eye.slash.fill" : "eye.fill")
+                                    .foregroundColor(.primary)
+                            }
+                        }
+                        .padding()
+                        .background(Color(.secondarySystemBackground))
+                        .cornerRadius(50)
+                        .frame(width: UIScreen.main.bounds.width - 40, height: 40)
+                        .padding()
+                Button(action: {
+                    self.register()
+                }) {
+                        Text("Register")
+                        .foregroundColor(.blue)
+                        .fontWeight(.semibold)
+                            .padding()
+                            .frame(width: UIScreen.main.bounds.width - 50, height: 50)
+                        .background(Color(.systemGray5))
+                        .cornerRadius(10)
+                        .padding(.leading)
+                        .padding(.top)
+                        .padding(.trailing)
+                    }
+                    Spacer()
+    }
+                Button(action: {
+                    self.show.toggle()
+                }) {
+                    Image(systemName: "chevron.left")
+                        .font(.title)
+                        .foregroundColor(.blue)
         }
+        Spacer()
+        if self.alert{
+            ErrorView(viewModel: LoginViewModel(), alert: self.$alert, error: self.$error)
+        }
+    }
         .navigationBarBackButtonHidden(true)
+        .navigationBarTitleDisplayMode(.inline)
+    
     }
     func register(){
         if self.email != ""{
@@ -450,9 +342,7 @@ struct ErrorView : View {
     @Binding var error : String
     
     var body: some View{
-//        GeometryReader{_ in
     ZStack{
-        
         VStack{
                 HStack{
                     Text(self.error == "RESET" ? "Message" : "Error")

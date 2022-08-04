@@ -27,8 +27,8 @@ struct WishListView: View {
             VStack {
                 HStack {
                     Text("My Wish Lists")
-                        .font(.title)
-                        .fontWeight(.semibold)
+                        .font(.custom("Kanit-ExtraBold", size: 32))
+                        .multilineTextAlignment(.center)
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -36,38 +36,43 @@ struct WishListView: View {
                             showSheet.toggle()
                         }, label: {
                             Image(systemName: "plus")
-                                .foregroundColor(.primary)
+                                .foregroundColor(.blue)
                         })
                         .fullScreenCover(isPresented: $showSheet, content: { CreateWishList(wishListViewModel: wishListViewModel)
                         })
                     }
                 }
                 Spacer()
-                ZStack(alignment: .trailing) {
+                ZStack {
                     VStack{
                     List {
                         ForEach(wishListViewModel.wishLists, id: \.self) { (item: WishList) in NavigationLink {
                             ItemView(wishList: item, wishListViewModel: wishListViewModel)
                         } label: {
-                            VStack {
+                            HStack {
+                                HStack{
+                                Image(systemName: "gift")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 100, height: 100, alignment: .trailing)
+                                    .padding(.trailing)
+                            }
+                                VStack{
                                 Text(item.title)
-                                    .font(.headline)
-                                    .padding(.bottom, 5)
+                                        .font(.custom("Kanit Bold", size: 18))
+                                .fontWeight(.bold)
+                                .padding(.bottom, 5)
                                
                                 Text(wishListViewModel.getDateOfWishList(date: item.date))
                                     .font(.subheadline)
-                               
-                                Image(systemName: "gift")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 120, height: 120, alignment: .trailing)
-                                    .padding()
+                                    .padding(.bottom, 5)
                                 Text("Total: \(item.items.count) wishes")
-                                    .font(.subheadline)
-                                    .padding(.leading)
-                                
+                                        .font(.custom("Kanit-Light", size: 16))
+//
+                                }
+                                Spacer()
                             }
-                            .padding(.leading)
+//                            .padding()
     //                        HStack {
     //                            Button {
     //                                isShowingShareActivity.toggle()
@@ -83,12 +88,12 @@ struct WishListView: View {
     //                        Image(systemName: "square.and.arrow.up")
     //                    })
     //                    )
-                        .padding(.leading, 50)
+                        .padding()
                         }
                        
                         .onDelete(perform: wishListViewModel.deleteWishList(at:))
-            }
                     }
+            }
         }
             }
 //            .navigationBarItems(trailing:
@@ -105,7 +110,7 @@ struct WishListView: View {
                 NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
                  }, label: {
             Text("Log out")
-                .foregroundColor(.black)
+            .foregroundColor(.blue)
         })
         )
         }.navigationBarHidden(true)

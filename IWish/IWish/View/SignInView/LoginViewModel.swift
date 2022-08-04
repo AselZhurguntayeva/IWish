@@ -37,19 +37,7 @@ class LoginViewModel: ObservableObject {
         }
     }
     
-//    func signUp(email: String, password: String) {
-//        auth.createUser(withEmail: email, password: password) { [weak self]
-//            result, error in
-//            guard result != nil, error == nil else {
-//                return
-//            }
-//            DispatchQueue.main.async {
-//                self?.signedIn = true
-//            }
-//        }
-//    }
-    
-    func signUp(){
+    func register(){
         
         if self.email != ""{
             if self.pass == self.repass{

@@ -15,6 +15,8 @@
 		B53E8FDB288E4A7700AD2ACD /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FDA288E4A7600AD2ACD /* ActivityController.swift */; };
 		B53E8FDE288E617500AD2ACD /* GetShareableInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FDD288E617500AD2ACD /* GetShareableInfo.swift */; };
 		B53E8FE0288E643A00AD2ACD /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FDF288E643A00AD2ACD /* ItemDetailViewModel.swift */; };
+		B55CF35A289A3ECC00E1E5B6 /* Yantramanav in Resources */ = {isa = PBXBuildFile; fileRef = B55CF359289A3ECC00E1E5B6 /* Yantramanav */; };
+		B55CF35E289A40E700E1E5B6 /* Kanit in Resources */ = {isa = PBXBuildFile; fileRef = B55CF35D289A40E700E1E5B6 /* Kanit */; };
 		B5D811322884AB8A00BA276D /* ItemDrawingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D811312884AB8A00BA276D /* ItemDrawingViewModel.swift */; };
 		B5D8B85E289454170008F6C1 /* ModelPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8B85D289454170008F6C1 /* ModelPersistence.swift */; };
 		B5DA93E0287F9AB200E2A1E7 /* IWishApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DA93DF287F9AB200E2A1E7 /* IWishApp.swift */; };
@@ -38,6 +40,9 @@
 		B53E8FDA288E4A7600AD2ACD /* ActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
 		B53E8FDD288E617500AD2ACD /* GetShareableInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShareableInfo.swift; sourceTree = "<group>"; };
 		B53E8FDF288E643A00AD2ACD /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModel.swift; sourceTree = "<group>"; };
+		B55CF358289A3D9600E1E5B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B55CF359289A3ECC00E1E5B6 /* Yantramanav */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Yantramanav; sourceTree = "<group>"; };
+		B55CF35D289A40E700E1E5B6 /* Kanit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Kanit; sourceTree = "<group>"; };
 		B5D811312884AB8A00BA276D /* ItemDrawingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDrawingViewModel.swift; sourceTree = "<group>"; };
 		B5D8B85D289454170008F6C1 /* ModelPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPersistence.swift; sourceTree = "<group>"; };
 		B5DA93DC287F9AB200E2A1E7 /* IWish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IWish.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +124,9 @@
 		B5DA93DE287F9AB200E2A1E7 /* IWish */ = {
 			isa = PBXGroup;
 			children = (
+				B55CF35D289A40E700E1E5B6 /* Kanit */,
+				B55CF359289A3ECC00E1E5B6 /* Yantramanav */,
+				B55CF358289A3D9600E1E5B6 /* Info.plist */,
 				B53E8FDC288E615900AD2ACD /* UserCase */,
 				B53E8FD9288E4A5E00AD2ACD /* Activity */,
 				B5DA93F1287F9B8400E2A1E7 /* Models */,
@@ -270,7 +278,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B55CF35A289A3ECC00E1E5B6 /* Yantramanav in Resources */,
 				B5DA93E7287F9AB300E2A1E7 /* Preview Assets.xcassets in Resources */,
+				B55CF35E289A40E700E1E5B6 /* Kanit in Resources */,
 				B5DA93E4287F9AB300E2A1E7 /* Assets.xcassets in Resources */,
 				B53E8FCC2888789900AD2ACD /* GoogleService-Info.plist in Resources */,
 			);
@@ -433,6 +443,7 @@
 				DEVELOPMENT_TEAM = 6LB3G448JH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IWish/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Allow to save your drawing";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow to save drawings";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -464,6 +475,7 @@
 				DEVELOPMENT_TEAM = 6LB3G448JH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IWish/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Allow to save your drawing";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow to save drawings";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

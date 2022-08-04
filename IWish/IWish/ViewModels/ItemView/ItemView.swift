@@ -22,9 +22,8 @@ struct ItemView: View {
    
     @Environment(\.dismiss) private var dismiss
     
-//    @StateObject private var itemViewModel = ItemViewModel()
     @ObservedObject var itemViewModel = ItemViewModel()
-    
+   
     var wishList: WishList
     @State var displayItems: [Item] = []
     @State var triggerUpdate: Bool = false
@@ -39,33 +38,34 @@ struct ItemView: View {
                             .padding(10)
                             .overlay(Rectangle()
                             .frame( height:3).padding(.top, 45))
+                           
                         HStack {
                             TextField("Quantity", text: $quantity)
                                 .padding(10)
                                 .overlay(
                                     Rectangle().frame(height: 3)
                                     .padding(.top, 45))
+                                
                             TextField("Price", text: $price)
                                 .padding(10)
                                 .overlay(
                                 Rectangle()
                                 .frame(height: 3)
                             .padding(.top, 45))
+                              
                     }
                     .padding(-5)
                     
                 }
                 .navigationTitle(wishList.title)
                 .navigationBarTitleDisplayMode(.inline)
-               
-                
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button(action: {
                             showSheet.toggle()
                         }, label: {
                             Image(systemName: "plus")
-                                .foregroundColor(.black)
+                                .foregroundColor(.blue)
                         })
                         .fullScreenCover(isPresented: $showSheet, content: { ItemDrawingView( itemViewModel: itemViewModel)
                         })
@@ -75,7 +75,6 @@ struct ItemView: View {
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button(action: {
-                                
                                 items.append(itemName)
                                 items.append(quantity)
                                 items.append(price)
@@ -84,7 +83,7 @@ struct ItemView: View {
 //                                isShowingShareActivity.toggle()
                             }, label: {
                                 Image(systemName: "square.and.arrow.up")
-                                    .foregroundColor(.black)
+                                    .foregroundColor(.blue)
                             })
 //                            .sheet(isPresented: $isShowingShareActivity, content: {
 //                                    let items: [Any] = []
@@ -94,7 +93,6 @@ struct ItemView: View {
                                 
                                 ShareSheet(items: ["I am having a \(wishList.title) soon!"])
                             })
-                            
                         }
                     }
                 
@@ -107,7 +105,7 @@ struct ItemView: View {
                     .onDelete { indexSet in
                         itemViewModel.deleteItem(wishList: wishList, wishListViewModel: wishListViewModel, at: indexSet)
                     }
-                }
+                }.background(.blue)
                 .listStyle(GroupedListStyle())
                 .listRowBackground(Color.clear)
                 .toolbar {
@@ -123,7 +121,7 @@ struct ItemView: View {
 //                                Rectangle().fill(.ultraThinMaterial)
 //                                    .cornerRadius(12)
                                 Text("Save")
-                                    .foregroundColor(.primary)
+                                    .foregroundColor(.blue)
                                 
                             }
                         }.frame(width: UIScreen.main.bounds.width - 80, height: 55)
@@ -131,6 +129,7 @@ struct ItemView: View {
                 }
             }.onAppear {
                 self.displayItems = wishList.items
+                  
             }
             .onChange(of: triggerUpdate) { update in
                 if update {
@@ -143,26 +142,6 @@ struct ItemView: View {
         }
         
     }
-//    func prepareForCreateItem(itemName: String?, quantity: String?, price: String?) {
-//        guard let itemName = itemName, !itemName.isEmpty,
-//        let quantity = quantity, !quantity.isEmpty,
-//        let price = price, !price.isEmpty
-//        else { return }
-//        let item = Item(itemName: itemName, quantity: quantity, price: price)
-//        itemViewModel.createItem(itemName: itemName, quantity: quantity, price: price, wishList: wishList, wishListViewModel: wishListViewModel)
-//    }
-//    func prepareForUpdateItem() {
-//        let itemName = itemName
-//        let quantity = quantity
-//        let price = price
-//
-//        guard !itemName.isEmpty, !quantity.isEmpty, !price.isEmpty else {
-//            return
-//        }
-//        if let item = item {
-//            itemViewModel.update
-//        }
-//    }
 }
 
 struct ItemView_Previews: PreviewProvider {
@@ -191,7 +170,7 @@ struct cellBody: View {
           Image(systemName: "app.gift")
             .resizable()
             .imageScale(.large)
-            .foregroundColor(.black)
+            .foregroundColor(.primary)
             
         )
         .imageScale(.large)
