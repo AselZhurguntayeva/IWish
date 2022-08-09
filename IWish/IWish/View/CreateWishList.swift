@@ -29,7 +29,8 @@ struct CreateWishList: View {
                     Rectangle().fill(Color.clear)
                     Text("Title")
                         .frame( maxWidth: .infinity, alignment: .leading)
-                        .font(.title3)
+//                        .font(.title3)
+                        .font(.custom("Kanit-Medium", size: 20))
                         .padding(20)
                     
                 }.frame(width: UIScreen.main.bounds.width - 30, height: 55, alignment: .leading)
@@ -43,7 +44,8 @@ struct CreateWishList: View {
                 VStack{
                     ZStack(alignment: .leading) {
                         Text("Event date")
-                            .font(.title3)
+//                            .font(.title3)
+                            .font(.custom("Kanit-Medium", size: 20))
                             .padding(10)
                         Rectangle().fill(Color.clear)
                             .cornerRadius(12)
@@ -79,6 +81,7 @@ struct CreateWishList: View {
                    dismiss()
                 } label: {
                     Text(wishList == nil ? "Create" : "Cancel")
+                        .font(.custom("Kanit-Light", size: 18))
                 }.padding()
             }
             .toolbar {

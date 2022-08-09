@@ -6,16 +6,15 @@
 //
 
 import Foundation
-import UIKit
+import SwiftUI
 
 struct Item: Identifiable, Equatable, Hashable, Codable {
    
     var itemName: String
     var quantity: String
     var price: String?
-//    var isLiked: Bool
     var id: String = UUID().uuidString
-//    var image: String?
+    var image: String?
     
 //    init(itemName: String, quantity: String, price: String, id: String = UUID().uuidString) {
 //        self.itemName = itemName
@@ -32,3 +31,4 @@ struct Item: Identifiable, Equatable, Hashable, Codable {
         
     }
 }
+

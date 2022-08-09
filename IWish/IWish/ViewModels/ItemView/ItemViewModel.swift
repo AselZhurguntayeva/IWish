@@ -6,19 +6,17 @@
 //
 
 import Foundation
+import UIKit
 
 class ItemViewModel:ObservableObject {
     
    @Published var items: [Item] = []
     
-//    func createItem(item: Item, wishList: WishList, wishListViewModel: WishListViewModel) {
-//        guard let index = wishListViewModel.wishLists.firstIndex(of: wishList) else { return }
-//        wishListViewModel.wishLists[index].items.append(item)
-//    }
-//
-    func createItem(itemName: String?, quantity: String?, price: String?, wishList: WishList, wishListViewModel: WishListViewModel) {
+    
+    func createItem(itemName: String?, quantity: String?, price: String?, image: UIImage?, wishList: WishList, wishListViewModel: WishListViewModel) {
         guard let itemName = itemName, !itemName.isEmpty,
               let quantity = quantity,!quantity.isEmpty,
+              let image = image,
               let price = price
         else {
             return
@@ -40,12 +38,4 @@ class ItemViewModel:ObservableObject {
         wishListViewModel.wishLists[index].items.remove(atOffsets: indexSet)
         ModelPersistence.shared.saveToPersistenceStore(wishLists: wishListViewModel.wishLists)
     }
-//    func toggleIsLiked(for item: Item) {
-//       guard let index = items.firstIndex(of: item) else { return }
-////        let item = items[index]
-//        items[index].isLiked.toggle()
-//        
-//    }
-    
-//
 }
