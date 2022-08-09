@@ -18,10 +18,6 @@ class WishListViewModel: ObservableObject {
 //    }
     
     func createWishList(title: String, date: Date?) {
-//        guard let title = title, !title.isEmpty,
-//              let date = date, !date.isEmpty else { return }
-//             guard let date = date,
-//             let title = title, !title.isEmpty else  { return }
         guard !title.isEmpty else { return }
         var wishList = WishList(title: title)
         if let date = date {

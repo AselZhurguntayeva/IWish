@@ -27,7 +27,7 @@ struct WishListView: View {
             VStack {
                 HStack {
                     Text("My Wish Lists")
-                        .font(.custom("Kanit-ExtraBold", size: 32))
+                        .font(.custom("Kanit-SemiBold", size: 30))
                         .multilineTextAlignment(.center)
                 }
                 .toolbar {
@@ -55,18 +55,21 @@ struct WishListView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 100, height: 100, alignment: .trailing)
+                                    .foregroundColor(Color.blue
+                                    )
                                     .padding(.trailing)
                             }
                                 VStack{
                                 Text(item.title)
-                                        .font(.custom("Kanit Bold", size: 18))
-                                .fontWeight(.bold)
+                                        .font(.custom("Kanit-Medium", size: 18))
+//                                .fontWeight(.bold)
                                 .padding(.bottom, 5)
                                
                                 Text(wishListViewModel.getDateOfWishList(date: item.date))
+                                        .font(.custom("Kanit-Regular", size: 16))
                                     .font(.subheadline)
                                     .padding(.bottom, 5)
-                                Text("Total: \(item.items.count) wishes")
+                                Text("Total wishes: \(item.items.count)")
                                         .font(.custom("Kanit-Light", size: 16))
 //
                                 }
@@ -81,6 +84,7 @@ struct WishListView: View {
     //                            }
     //                        }
                         }
+//                        .listRowBackground(Color("lightblue"))
     //                    .navigationBarItems(trailing:
     //                        Button(action: {
     //                        isShowingShareActivity.toggle()
@@ -92,17 +96,10 @@ struct WishListView: View {
                         }
                        
                         .onDelete(perform: wishListViewModel.deleteWishList(at:))
-                    }
+                    }.listStyle(.plain)
             }
         }
-            }
-//            .navigationBarItems(trailing:
-//                Button(action: {
-////                isShowingShareActivity.toggle()
-//            }, label: {
-////                Image(systemName: "square.and.arrow.up")
-//            })
-//            )
+    }
             .navigationBarItems(leading:
         Button(action: {
                 try! Auth.auth().signOut()
@@ -110,9 +107,10 @@ struct WishListView: View {
                 NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
                  }, label: {
             Text("Log out")
+            .font(.custom("Kanit-Light", size: 16))
             .foregroundColor(.blue)
-        })
-        )
+                 })
+            )
         }.navigationBarHidden(true)
     }
 }

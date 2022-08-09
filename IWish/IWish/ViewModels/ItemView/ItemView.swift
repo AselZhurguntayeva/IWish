@@ -6,28 +6,32 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ItemView: View {
     
     @State private var itemName: String = ""
     @State private var price: String = ""
     @State private var quantity: String = ""
-    @State private var image: String = ""
+//    @State private var image: String = ""
     @State var showSheet: Bool = false
     @State private var isLiked = false
 //    @State private var isShowingShareActivity = false
     @State private var showShareSheet = false
-    
+    @State private var isShowingPhotoLibrary = false
     @State var items: [Any] = []
-   
-    @Environment(\.dismiss) private var dismiss
-    
-    @ObservedObject var itemViewModel = ItemViewModel()
-   
-    var wishList: WishList
+    @State var image: UIImage?
     @State var displayItems: [Item] = []
     @State var triggerUpdate: Bool = false
     
+    @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var vm: ImageStorage
+   
+    var wishList: WishList
+    
+//    @State var itemImage = UIImage()
+   
+    @ObservedObject var itemViewModel = ItemViewModel()
     @ObservedObject var wishListViewModel: WishListViewModel
     
     var body: some View {
@@ -35,18 +39,21 @@ struct ItemView: View {
             VStack {
                 VStack {
                         TextField("Item Name", text: $itemName)
+                        .font(.custom("Kanit-Regular", size: 18))
                             .padding(10)
                             .overlay(Rectangle()
                             .frame( height:3).padding(.top, 45))
                            
                         HStack {
                             TextField("Quantity", text: $quantity)
+                                .font(.custom("Kanit-Regular", size: 18))
                                 .padding(10)
                                 .overlay(
                                     Rectangle().frame(height: 3)
                                     .padding(.top, 45))
                                 
                             TextField("Price", text: $price)
+                                .font(.custom("Kanit-Regular", size: 18))
                                 .padding(10)
                                 .overlay(
                                 Rectangle()
@@ -54,17 +61,32 @@ struct ItemView: View {
                             .padding(.top, 45))
                               
                     }
-                    .padding(-5)
-                    
+                        .padding(.bottom, 5)
+//                    Image(systemName: "photo.circle")
+//                        .resizable()
+//                        .frame(width: 20, height: 20)
+//                    Button{
+//
+//                    }label:{
+//                    Text("Photos")
+//                    }
                 }
-                .navigationTitle(wishList.title)
+//                .navigationTitle(wishList.title)
+//                .font(.custom("Kanit-SemiBold", size: 20))
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .principal){
+                        Text("\(wishList.title)")
+                            .font(.custom("Kanit-Regular", size: 20))
+                    }
+                }
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button(action: {
                             showSheet.toggle()
                         }, label: {
-                            Image(systemName: "plus")
+                            Image(systemName: "hand.draw")
                                 .foregroundColor(.blue)
                         })
                         .fullScreenCover(isPresented: $showSheet, content: { ItemDrawingView( itemViewModel: itemViewModel)
@@ -73,12 +95,29 @@ struct ItemView: View {
                 }.padding()
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
+                        ToolbarItem{
+                        Button(action: {
+                            isShowingPhotoLibrary.toggle()
+                        }, label: {
+                            Image(systemName: "camera")
+                                .foregroundColor(.blue)
+                        })
+                        .fullScreenCover(isPresented: $isShowingPhotoLibrary, onDismiss: nil) {
+                            ImagePicker(image: $image)
+//                            ImagePicker(selectedItem: itemName, selectedImage: <#T##UIImage#>,sourceType: vm.sourceType == .photoLibrary)
+                        }
+                    }
+                }
+                    
+                
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button(action: {
                                 items.append(itemName)
                                 items.append(quantity)
                                 items.append(price)
-//                                self.showShareSheet = true
+
                                 showShareSheet.toggle()
 //                                isShowingShareActivity.toggle()
                             }, label: {
@@ -91,7 +130,7 @@ struct ItemView: View {
 //                            })
                             .sheet(isPresented: $showShareSheet, content: {
                                 
-                                ShareSheet(items: ["I am having a \(wishList.title) soon!"])
+                                ShareSheet(items: ["\(wishList.title): \(wishList.self.items)"])
                             })
                         }
                     }
@@ -100,7 +139,6 @@ struct ItemView: View {
                     ForEach(displayItems)
                     { item in
                         cellBody( item: item, itemViewModel: itemViewModel)
-//
                     }
                     .onDelete { indexSet in
                         itemViewModel.deleteItem(wishList: wishList, wishListViewModel: wishListViewModel, at: indexSet)
@@ -111,22 +149,25 @@ struct ItemView: View {
                 .toolbar {
                     ToolbarItem(placement: .bottomBar) {
                         Button {
-                            itemViewModel.createItem(itemName: itemName, quantity: quantity, price: price, wishList: wishList, wishListViewModel: wishListViewModel)
+                            itemViewModel.createItem(itemName: itemName, quantity: quantity, price: price, image: image, wishList: wishList, wishListViewModel: wishListViewModel)
                             itemName = ""
                             quantity = ""
                             price = ""
+                            image = image
                             self.triggerUpdate.toggle()
                         } label: {
                             ZStack {
 //                                Rectangle().fill(.ultraThinMaterial)
 //                                    .cornerRadius(12)
                                 Text("Save")
+                                    .font(.custom("Kanit-Light", size: 18))
                                     .foregroundColor(.blue)
                                 
                             }
                         }.frame(width: UIScreen.main.bounds.width - 80, height: 55)
                     }
                 }
+    
             }.onAppear {
                 self.displayItems = wishList.items
                   
@@ -138,7 +179,11 @@ struct ItemView: View {
                         wishList.id == self.wishList.id
                     }))?.items ?? []
                 }
+                   
             }
+//            .sheet(isPresented: $isShowingPhotoPicker, content: {
+//                PhotoPicker(itemImage: $itemImage)
+//            })
         }
         
     }
@@ -157,6 +202,8 @@ struct ItemView_Previews: PreviewProvider {
 struct cellBody: View {
 
   @State var item: Item
+  @State private var isShowingPhotoPicker = false
+ @State var image = UIImage()
     
     @ObservedObject var itemViewModel: ItemViewModel
     
@@ -178,7 +225,7 @@ struct cellBody: View {
       VStack(alignment: .leading) {
         Text(item.itemName)
           .foregroundColor(.primary)
-          .font(.headline)
+          .font(.custom("Kanit-Regular", size: 18))
     }
       Spacer()
         Text(item.quantity)
@@ -194,7 +241,14 @@ struct cellBody: View {
         .imageScale(.large)
         .foregroundColor(.primary)
         .frame(width: 30, alignment: .center)
-//        .padding()
+        .padding()
+        Image(uiImage: image)
+            .resizable()
+            .frame(width: 50, height: 50)
+            .scaledToFill()
+//            .onTapGesture {
+//                isShowingPhotoPicker = true
+//            }
     }
     .padding()
     .cornerRadius(8)

@@ -66,8 +66,7 @@ struct SignInView: View {
                         .scaledToFit()
                         .padding(.top, 35)
                         Text("Log in to your account")
-                            .font(.title)
-                            .fontWeight(.bold)
+                            .font(.custom("Kanit-SemiBold", size: 24))
                             .foregroundColor(.black)
                             .padding(.top, 35)
                         
@@ -78,16 +77,19 @@ struct SignInView: View {
                             .background(Color(.secondarySystemBackground))
                             .cornerRadius(50)
                             .frame(width: UIScreen.main.bounds.width - 40, height: 40)
+                            .font(.custom("Kanit-ExtraLight", size: 18))
                             .padding(.bottom)
                     HStack{
                         VStack{
                             if self.visible{
                                 TextField("Password", text: $password)
                                     .autocapitalization(.none)
+                                    .font(.custom("Kanit-ExtraLight", size: 18))
                             }
                             else{
                                 SecureField("Password", text: $password)
                                     .autocapitalization(.none)
+                                    .font(.custom("Kanit-ExtraLight", size: 18))
                             }
                         }
                         Button(action: {
@@ -108,8 +110,7 @@ struct SignInView: View {
                                     self.reset()
                                 } label: {
                                     Text("Forgot Password")
-                                        .font(.callout)
-                                        .font(.system(size: 16, weight: .bold))
+                                        .font(.custom("Kanit-Medium", size: 14))
                                         .foregroundColor(.primary)
                                 } .padding(.trailing, 35)
                             .padding(.bottom)
@@ -123,22 +124,19 @@ struct SignInView: View {
                             .frame(width: UIScreen.main.bounds.width - 50)
                             .background(Color(.systemGray5))
                             .cornerRadius(10)
+                            .font(.custom("Kanit-Light", size: 18))
                         }
-                    
-                           
                         HStack{
                             Spacer()
                         Button(action: {
                             self.show.toggle()
                         }) {
                             Text("Register")
-                                .font(.callout)
-                                .fontWeight(.bold)
+                                .font(.custom("Kanit-Medium", size: 14))
                                 .foregroundColor(.primary)
                 }
                         .padding(.trailing, 35)
-                    }
-            
+            }
         }
     }
 }
@@ -213,12 +211,12 @@ struct SignUpView: View {
                         .resizable()
                         .frame(width: 250, height: 250)
                     Text("Create account")
-                        .font(.title)
-                        .fontWeight(.bold)
+                        .font(.custom("Kanit-SemiBold", size: 24))
                         .foregroundColor(.blue)
                         .padding(.top, 35)
                         .padding()
                     TextField("Email Address", text: $email)
+                        .font(.custom("Kanit-ExtraLight", size: 18))
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
                         .padding()
@@ -232,10 +230,12 @@ struct SignUpView: View {
                         if self.visible{
                             TextField("Password", text: $password)
                                 .autocapitalization(.none)
+                                .font(.custom("Kanit-ExtraLight", size: 18))
                         }
                         else{
                             SecureField("Password", text: $password)
                                 .autocapitalization(.none)
+                                .font(.custom("Kanit-ExtraLight", size: 18))
                         }
                     }
                     Button(action: {
@@ -256,10 +256,12 @@ struct SignUpView: View {
                         if self.revisible{
                             TextField("Re-enter", text: $repassword)
                             .autocapitalization(.none)
+                            .font(.custom("Kanit-ExtraLight", size: 18))
                         }
                         else{
                             SecureField("Re-enter", text: $repassword)
                             .autocapitalization(.none)
+                            .font(.custom("Kanit-ExtraLight", size: 18))
                         }
                     }
                         Button{
@@ -279,7 +281,7 @@ struct SignUpView: View {
                 }) {
                         Text("Register")
                         .foregroundColor(.blue)
-                        .fontWeight(.semibold)
+                        .font(.custom("Kanit-Light", size: 18))
                             .padding()
                             .frame(width: UIScreen.main.bounds.width - 50, height: 50)
                         .background(Color(.systemGray5))
@@ -363,6 +365,7 @@ struct ErrorView : View {
                         .foregroundColor(.white)
                         .padding(.vertical)
                         .frame(width: UIScreen.main.bounds.width - 120)
+                        .font(.custom("Kanit-Light", size: 18))
                 }
                 .background(Color.black.opacity(0.70))
                 .cornerRadius(10)

@@ -13,10 +13,15 @@
 		B53E8FD428888D3200AD2ACD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FD328888D3200AD2ACD /* LoginViewModel.swift */; };
 		B53E8FD6288A580100AD2ACD /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FD5288A580100AD2ACD /* ForgotPasswordView.swift */; };
 		B53E8FDB288E4A7700AD2ACD /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FDA288E4A7600AD2ACD /* ActivityController.swift */; };
-		B53E8FDE288E617500AD2ACD /* GetShareableInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FDD288E617500AD2ACD /* GetShareableInfo.swift */; };
-		B53E8FE0288E643A00AD2ACD /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FDF288E643A00AD2ACD /* ItemDetailViewModel.swift */; };
-		B55CF35A289A3ECC00E1E5B6 /* Yantramanav in Resources */ = {isa = PBXBuildFile; fileRef = B55CF359289A3ECC00E1E5B6 /* Yantramanav */; };
-		B55CF35E289A40E700E1E5B6 /* Kanit in Resources */ = {isa = PBXBuildFile; fileRef = B55CF35D289A40E700E1E5B6 /* Kanit */; };
+		B57B49D8289B98C0004370E8 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57B49D7289B98C0004370E8 /* ImagePicker.swift */; };
+		B57B49DE28A09975004370E8 /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57B49DD28A09975004370E8 /* ImageStorage.swift */; };
+		B57B4A1628A1B085004370E8 /* Kanit-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B57B4A1428A1B077004370E8 /* Kanit-Bold.ttf */; };
+		B57B4A1728A1B08A004370E8 /* Yantramanav-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B57B4A1528A1B07F004370E8 /* Yantramanav-Black.ttf */; };
+		B57B4A1C28A1F0E0004370E8 /* Kanit-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B57B4A1828A1F00A004370E8 /* Kanit-SemiBold.ttf */; };
+		B57B4A1D28A1F0E7004370E8 /* Kanit-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B57B4A1928A1F00F004370E8 /* Kanit-Regular.ttf */; };
+		B57B4A1E28A1F0EA004370E8 /* Kanit-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B57B4A1A28A1F074004370E8 /* Kanit-Light.ttf */; };
+		B57B4A1F28A1F0EE004370E8 /* Kanit-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B57B4A1B28A1F08B004370E8 /* Kanit-ExtraLight.ttf */; };
+		B57B4A2128A1F2BA004370E8 /* Kanit-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B57B4A2028A1F29A004370E8 /* Kanit-Medium.ttf */; };
 		B5D811322884AB8A00BA276D /* ItemDrawingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D811312884AB8A00BA276D /* ItemDrawingViewModel.swift */; };
 		B5D8B85E289454170008F6C1 /* ModelPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8B85D289454170008F6C1 /* ModelPersistence.swift */; };
 		B5DA93E0287F9AB200E2A1E7 /* IWishApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DA93DF287F9AB200E2A1E7 /* IWishApp.swift */; };
@@ -38,11 +43,16 @@
 		B53E8FD328888D3200AD2ACD /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B53E8FD5288A580100AD2ACD /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		B53E8FDA288E4A7600AD2ACD /* ActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
-		B53E8FDD288E617500AD2ACD /* GetShareableInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShareableInfo.swift; sourceTree = "<group>"; };
-		B53E8FDF288E643A00AD2ACD /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModel.swift; sourceTree = "<group>"; };
 		B55CF358289A3D9600E1E5B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		B55CF359289A3ECC00E1E5B6 /* Yantramanav */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Yantramanav; sourceTree = "<group>"; };
-		B55CF35D289A40E700E1E5B6 /* Kanit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Kanit; sourceTree = "<group>"; };
+		B57B49D7289B98C0004370E8 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		B57B49DD28A09975004370E8 /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
+		B57B4A1428A1B077004370E8 /* Kanit-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Bold.ttf"; sourceTree = "<group>"; };
+		B57B4A1528A1B07F004370E8 /* Yantramanav-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Yantramanav-Black.ttf"; sourceTree = "<group>"; };
+		B57B4A1828A1F00A004370E8 /* Kanit-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-SemiBold.ttf"; sourceTree = "<group>"; };
+		B57B4A1928A1F00F004370E8 /* Kanit-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Regular.ttf"; sourceTree = "<group>"; };
+		B57B4A1A28A1F074004370E8 /* Kanit-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Light.ttf"; sourceTree = "<group>"; };
+		B57B4A1B28A1F08B004370E8 /* Kanit-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-ExtraLight.ttf"; sourceTree = "<group>"; };
+		B57B4A2028A1F29A004370E8 /* Kanit-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Medium.ttf"; sourceTree = "<group>"; };
 		B5D811312884AB8A00BA276D /* ItemDrawingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDrawingViewModel.swift; sourceTree = "<group>"; };
 		B5D8B85D289454170008F6C1 /* ModelPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPersistence.swift; sourceTree = "<group>"; };
 		B5DA93DC287F9AB200E2A1E7 /* IWish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IWish.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,12 +99,18 @@
 			path = Activity;
 			sourceTree = "<group>";
 		};
-		B53E8FDC288E615900AD2ACD /* UserCase */ = {
+		B57B4A2228A2007A004370E8 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				B53E8FDD288E617500AD2ACD /* GetShareableInfo.swift */,
+				B57B4A1B28A1F08B004370E8 /* Kanit-ExtraLight.ttf */,
+				B57B4A2028A1F29A004370E8 /* Kanit-Medium.ttf */,
+				B57B4A1A28A1F074004370E8 /* Kanit-Light.ttf */,
+				B57B4A1928A1F00F004370E8 /* Kanit-Regular.ttf */,
+				B57B4A1828A1F00A004370E8 /* Kanit-SemiBold.ttf */,
+				B57B4A1528A1B07F004370E8 /* Yantramanav-Black.ttf */,
+				B57B4A1428A1B077004370E8 /* Kanit-Bold.ttf */,
 			);
-			path = UserCase;
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		B5D8B85C289453E30008F6C1 /* ModelControl */ = {
@@ -124,16 +140,16 @@
 		B5DA93DE287F9AB200E2A1E7 /* IWish */ = {
 			isa = PBXGroup;
 			children = (
-				B55CF35D289A40E700E1E5B6 /* Kanit */,
-				B55CF359289A3ECC00E1E5B6 /* Yantramanav */,
+				B57B4A2228A2007A004370E8 /* Fonts */,
 				B55CF358289A3D9600E1E5B6 /* Info.plist */,
-				B53E8FDC288E615900AD2ACD /* UserCase */,
 				B53E8FD9288E4A5E00AD2ACD /* Activity */,
 				B5DA93F1287F9B8400E2A1E7 /* Models */,
 				B5DA93EE287F9B4900E2A1E7 /* View */,
 				B5DA93DF287F9AB200E2A1E7 /* IWishApp.swift */,
 				B5DA93ED287F9B4000E2A1E7 /* Resources */,
 				B5DA93E5287F9AB300E2A1E7 /* Preview Content */,
+				B57B49D7289B98C0004370E8 /* ImagePicker.swift */,
+				B57B49DD28A09975004370E8 /* ImageStorage.swift */,
 			);
 			path = IWish;
 			sourceTree = "<group>";
@@ -170,7 +186,6 @@
 			children = (
 				B5DA93FC287F9C0C00E2A1E7 /* ItemView.swift */,
 				B5DA93FA287F9BFC00E2A1E7 /* ItemViewModel.swift */,
-				B53E8FDF288E643A00AD2ACD /* ItemDetailViewModel.swift */,
 			);
 			path = ItemView;
 			sourceTree = "<group>";
@@ -187,9 +202,9 @@
 		B5DA93F1287F9B8400E2A1E7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B5D8B85C289453E30008F6C1 /* ModelControl */,
-				B5DA93F2287F9BB200E2A1E7 /* WishList.swift */,
 				B5DA93F4287F9BBC00E2A1E7 /* Item.swift */,
+				B5DA93F2287F9BB200E2A1E7 /* WishList.swift */,
+				B5D8B85C289453E30008F6C1 /* ModelControl */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -278,9 +293,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B55CF35A289A3ECC00E1E5B6 /* Yantramanav in Resources */,
+				B57B4A2128A1F2BA004370E8 /* Kanit-Medium.ttf in Resources */,
+				B57B4A1F28A1F0EE004370E8 /* Kanit-ExtraLight.ttf in Resources */,
+				B57B4A1E28A1F0EA004370E8 /* Kanit-Light.ttf in Resources */,
+				B57B4A1D28A1F0E7004370E8 /* Kanit-Regular.ttf in Resources */,
+				B57B4A1C28A1F0E0004370E8 /* Kanit-SemiBold.ttf in Resources */,
+				B57B4A1728A1B08A004370E8 /* Yantramanav-Black.ttf in Resources */,
+				B57B4A1628A1B085004370E8 /* Kanit-Bold.ttf in Resources */,
 				B5DA93E7287F9AB300E2A1E7 /* Preview Assets.xcassets in Resources */,
-				B55CF35E289A40E700E1E5B6 /* Kanit in Resources */,
 				B5DA93E4287F9AB300E2A1E7 /* Assets.xcassets in Resources */,
 				B53E8FCC2888789900AD2ACD /* GoogleService-Info.plist in Resources */,
 			);
@@ -295,17 +315,17 @@
 			files = (
 				B5DA93F3287F9BB200E2A1E7 /* WishList.swift in Sources */,
 				B5DA93F5287F9BBC00E2A1E7 /* Item.swift in Sources */,
-				B53E8FE0288E643A00AD2ACD /* ItemDetailViewModel.swift in Sources */,
 				B53E8FDB288E4A7700AD2ACD /* ActivityController.swift in Sources */,
-				B53E8FDE288E617500AD2ACD /* GetShareableInfo.swift in Sources */,
 				B5DA93FF287FE33F00E2A1E7 /* CreateWishList.swift in Sources */,
 				B5DA93F9287F9BEA00E2A1E7 /* WishListModel.swift in Sources */,
 				B5EEC427288730CA0096BA1A /* ItemDrawingView.swift in Sources */,
+				B57B49DE28A09975004370E8 /* ImageStorage.swift in Sources */,
 				B5D811322884AB8A00BA276D /* ItemDrawingViewModel.swift in Sources */,
 				B5DA93E0287F9AB200E2A1E7 /* IWishApp.swift in Sources */,
 				B5DA93FD287F9C0C00E2A1E7 /* ItemView.swift in Sources */,
 				B53E8FD6288A580100AD2ACD /* ForgotPasswordView.swift in Sources */,
 				B53E8FD428888D3200AD2ACD /* LoginViewModel.swift in Sources */,
+				B57B49D8289B98C0004370E8 /* ImagePicker.swift in Sources */,
 				B5D8B85E289454170008F6C1 /* ModelPersistence.swift in Sources */,
 				B5DA93F7287F9BD700E2A1E7 /* WishListView.swift in Sources */,
 				B53E8FD2288888F800AD2ACD /* LoginView.swift in Sources */,

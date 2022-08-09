@@ -19,11 +19,14 @@ struct ItemDrawingView: View {
         //default is pen
         var body: some View {
             NavigationView {
-                
                 // drawing view
                 DrawingView(canvas: $canvas, isDraw: $isDraw, type: $type, color: $color)
-                    .navigationTitle("Draw your wish")
-                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar{
+                        ToolbarItem(placement:.principal){
+                            Text("Draw your wish")
+                                .font(.custom("Kanit-Regular", size: 20))
+                        }
+                    }
                     .navigationBarItems(leading:
                                             HStack(spacing: 10) {
                         Button {
@@ -33,7 +36,7 @@ struct ItemDrawingView: View {
                     label: {
                         Image(systemName: "xmark")
                             .font(.title3)
-                            .foregroundColor(Color("color3"))
+                            .foregroundColor(.blue)
                     }
                         Button {
                             // saving image
@@ -43,17 +46,17 @@ struct ItemDrawingView: View {
                         label: {
                             Image(systemName: "square.and.arrow.down.fill")
                                 .font(.title)
-                                .foregroundColor(Color("color3"))
+                                .foregroundColor(.blue)
                         }
                     }, trailing:
-                                            HStack(spacing: 15) {
+                        HStack(spacing: 15) {
                         Button(action: {
                             // erase tool
                             isDraw = false
                         }) {
                             Image(systemName: "pencil.slash")
                                 .font(.title)
-                                .foregroundColor(Color("color3"))
+                                .foregroundColor(.blue)
                         }
                         //Menu for InkType and Color
                         Menu {
