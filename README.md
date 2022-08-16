@@ -17,17 +17,17 @@ While there are many applications available that help you to create a registry, 
 
 ### Overview
 
-1.Once you create a wishlist and add an item, it instantly updates the wishlist view.
+1. Once you create a wishlist and add an item, it instantly updates the wishlist view.
 
 ![WishList view] (https://postimg.cc/RW6rRXG4)
 
-2.You can search for an idea using a listed online stores view and filter them. The collection view of online shops is linked to their websites, so you can browse items that you would want to add to your wishlist.
+2. You can search for an idea using a listed online stores view and filter them. The collection view of online shops is linked to their websites, so you can browse items that you would want to add to your wishlist.
 
 ![Stores View] (https://postimg.cc/gXGBfDyw)
 
-3.Once your list is complete, you are able to share it with whomever you wish through email, text, or any other messenger.
+3. Once your list is complete, you are able to share it with whomever you wish through email, text, or any other messenger.
 
-![Sharing WishList View](https://postimg.cc/RNWb5qtT)
+[![Simulator-Screen-Shot-i-Phone-12-2022-08-16-at-16-21-12.png](https://i.postimg.cc/jdcVf7dB/Simulator-Screen-Shot-i-Phone-12-2022-08-16-at-16-21-12.png)](https://postimg.cc/RNWb5qtT)
 
 
 
