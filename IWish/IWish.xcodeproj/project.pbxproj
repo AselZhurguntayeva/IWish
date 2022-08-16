@@ -11,10 +11,7 @@
 		B53E8FCF28887ADD00AD2ACD /* FirebaseService in Frameworks */ = {isa = PBXBuildFile; productRef = B53E8FCE28887ADD00AD2ACD /* FirebaseService */; };
 		B53E8FD2288888F800AD2ACD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FD1288888F800AD2ACD /* LoginView.swift */; };
 		B53E8FD428888D3200AD2ACD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FD328888D3200AD2ACD /* LoginViewModel.swift */; };
-		B53E8FD6288A580100AD2ACD /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FD5288A580100AD2ACD /* ForgotPasswordView.swift */; };
 		B53E8FDB288E4A7700AD2ACD /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E8FDA288E4A7600AD2ACD /* ActivityController.swift */; };
-		B57B49D8289B98C0004370E8 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57B49D7289B98C0004370E8 /* ImagePicker.swift */; };
-		B57B49DE28A09975004370E8 /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57B49DD28A09975004370E8 /* ImageStorage.swift */; };
 		B57B4A1628A1B085004370E8 /* Kanit-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B57B4A1428A1B077004370E8 /* Kanit-Bold.ttf */; };
 		B57B4A1728A1B08A004370E8 /* Yantramanav-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B57B4A1528A1B07F004370E8 /* Yantramanav-Black.ttf */; };
 		B57B4A1C28A1F0E0004370E8 /* Kanit-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B57B4A1828A1F00A004370E8 /* Kanit-SemiBold.ttf */; };
@@ -34,18 +31,18 @@
 		B5DA93FB287F9BFC00E2A1E7 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DA93FA287F9BFC00E2A1E7 /* ItemViewModel.swift */; };
 		B5DA93FD287F9C0C00E2A1E7 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DA93FC287F9C0C00E2A1E7 /* ItemView.swift */; };
 		B5DA93FF287FE33F00E2A1E7 /* CreateWishList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DA93FE287FE33F00E2A1E7 /* CreateWishList.swift */; };
+		B5E9959628A9BD930064C8C7 /* WebStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E9959528A9BD930064C8C7 /* WebStoreView.swift */; };
+		B5E995B628A9DFF60064C8C7 /* WebStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E995B528A9DFF60064C8C7 /* WebStore.swift */; };
 		B5EEC427288730CA0096BA1A /* ItemDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EEC426288730CA0096BA1A /* ItemDrawingView.swift */; };
+		B5F6D48C28AA2CD200F32A4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5F6D48B28AA2CD200F32A4A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B53E8FCB2888789900AD2ACD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B53E8FD1288888F800AD2ACD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B53E8FD328888D3200AD2ACD /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		B53E8FD5288A580100AD2ACD /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		B53E8FDA288E4A7600AD2ACD /* ActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
 		B55CF358289A3D9600E1E5B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		B57B49D7289B98C0004370E8 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		B57B49DD28A09975004370E8 /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
 		B57B4A1428A1B077004370E8 /* Kanit-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Bold.ttf"; sourceTree = "<group>"; };
 		B57B4A1528A1B07F004370E8 /* Yantramanav-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Yantramanav-Black.ttf"; sourceTree = "<group>"; };
 		B57B4A1828A1F00A004370E8 /* Kanit-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -66,7 +63,10 @@
 		B5DA93FA287F9BFC00E2A1E7 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		B5DA93FC287F9C0C00E2A1E7 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		B5DA93FE287FE33F00E2A1E7 /* CreateWishList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWishList.swift; sourceTree = "<group>"; };
+		B5E9959528A9BD930064C8C7 /* WebStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebStoreView.swift; sourceTree = "<group>"; };
+		B5E995B528A9DFF60064C8C7 /* WebStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebStore.swift; sourceTree = "<group>"; };
 		B5EEC426288730CA0096BA1A /* ItemDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDrawingView.swift; sourceTree = "<group>"; };
+		B5F6D48B28AA2CD200F32A4A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,16 +81,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B53E8FD0288888CD00AD2ACD /* SignInView */ = {
-			isa = PBXGroup;
-			children = (
-				B53E8FD1288888F800AD2ACD /* LoginView.swift */,
-				B53E8FD328888D3200AD2ACD /* LoginViewModel.swift */,
-				B53E8FD5288A580100AD2ACD /* ForgotPasswordView.swift */,
-			);
-			path = SignInView;
-			sourceTree = "<group>";
-		};
 		B53E8FD9288E4A5E00AD2ACD /* Activity */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +101,17 @@
 				B57B4A1428A1B077004370E8 /* Kanit-Bold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B595516C28AC48D0003EFEF8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B53E8FD328888D3200AD2ACD /* LoginViewModel.swift */,
+				B5D811312884AB8A00BA276D /* ItemDrawingViewModel.swift */,
+				B5DA93F8287F9BEA00E2A1E7 /* WishListModel.swift */,
+				B5DA93FA287F9BFC00E2A1E7 /* ItemViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B5D8B85C289453E30008F6C1 /* ModelControl */ = {
@@ -140,16 +141,15 @@
 		B5DA93DE287F9AB200E2A1E7 /* IWish */ = {
 			isa = PBXGroup;
 			children = (
+				B5DA93DF287F9AB200E2A1E7 /* IWishApp.swift */,
 				B57B4A2228A2007A004370E8 /* Fonts */,
 				B55CF358289A3D9600E1E5B6 /* Info.plist */,
 				B53E8FD9288E4A5E00AD2ACD /* Activity */,
 				B5DA93F1287F9B8400E2A1E7 /* Models */,
+				B595516C28AC48D0003EFEF8 /* ViewModel */,
 				B5DA93EE287F9B4900E2A1E7 /* View */,
-				B5DA93DF287F9AB200E2A1E7 /* IWishApp.swift */,
 				B5DA93ED287F9B4000E2A1E7 /* Resources */,
 				B5DA93E5287F9AB300E2A1E7 /* Preview Content */,
-				B57B49D7289B98C0004370E8 /* ImagePicker.swift */,
-				B57B49DD28A09975004370E8 /* ImageStorage.swift */,
 			);
 			path = IWish;
 			sourceTree = "<group>";
@@ -165,6 +165,7 @@
 		B5DA93ED287F9B4000E2A1E7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B5F6D48B28AA2CD200F32A4A /* LaunchScreen.storyboard */,
 				B5DA93E3287F9AB300E2A1E7 /* Assets.xcassets */,
 				B53E8FCB2888789900AD2ACD /* GoogleService-Info.plist */,
 			);
@@ -174,29 +175,14 @@
 		B5DA93EE287F9B4900E2A1E7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B53E8FD0288888CD00AD2ACD /* SignInView */,
-				B5EEC424288730360096BA1A /* ViewModels */,
+				B53E8FD1288888F800AD2ACD /* LoginView.swift */,
+				B5DA93FC287F9C0C00E2A1E7 /* ItemView.swift */,
+				B5EEC426288730CA0096BA1A /* ItemDrawingView.swift */,
+				B5DA93F6287F9BD700E2A1E7 /* WishListView.swift */,
 				B5DA93FE287FE33F00E2A1E7 /* CreateWishList.swift */,
+				B5E9959528A9BD930064C8C7 /* WebStoreView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		B5DA93EF287F9B6B00E2A1E7 /* ItemView */ = {
-			isa = PBXGroup;
-			children = (
-				B5DA93FC287F9C0C00E2A1E7 /* ItemView.swift */,
-				B5DA93FA287F9BFC00E2A1E7 /* ItemViewModel.swift */,
-			);
-			path = ItemView;
-			sourceTree = "<group>";
-		};
-		B5DA93F0287F9B7700E2A1E7 /* WishListView */ = {
-			isa = PBXGroup;
-			children = (
-				B5DA93F6287F9BD700E2A1E7 /* WishListView.swift */,
-				B5DA93F8287F9BEA00E2A1E7 /* WishListModel.swift */,
-			);
-			path = WishListView;
 			sourceTree = "<group>";
 		};
 		B5DA93F1287F9B8400E2A1E7 /* Models */ = {
@@ -204,29 +190,10 @@
 			children = (
 				B5DA93F4287F9BBC00E2A1E7 /* Item.swift */,
 				B5DA93F2287F9BB200E2A1E7 /* WishList.swift */,
+				B5E995B528A9DFF60064C8C7 /* WebStore.swift */,
 				B5D8B85C289453E30008F6C1 /* ModelControl */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		B5EEC424288730360096BA1A /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				B5EEC425288730610096BA1A /* DrawingView */,
-				B5DA93EF287F9B6B00E2A1E7 /* ItemView */,
-				B5DA93F0287F9B7700E2A1E7 /* WishListView */,
-			);
-			name = ViewModels;
-			path = IWish/ViewModels;
-			sourceTree = SOURCE_ROOT;
-		};
-		B5EEC425288730610096BA1A /* DrawingView */ = {
-			isa = PBXGroup;
-			children = (
-				B5EEC426288730CA0096BA1A /* ItemDrawingView.swift */,
-				B5D811312884AB8A00BA276D /* ItemDrawingViewModel.swift */,
-			);
-			path = DrawingView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +269,7 @@
 				B57B4A1628A1B085004370E8 /* Kanit-Bold.ttf in Resources */,
 				B5DA93E7287F9AB300E2A1E7 /* Preview Assets.xcassets in Resources */,
 				B5DA93E4287F9AB300E2A1E7 /* Assets.xcassets in Resources */,
+				B5F6D48C28AA2CD200F32A4A /* LaunchScreen.storyboard in Resources */,
 				B53E8FCC2888789900AD2ACD /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,16 +287,15 @@
 				B5DA93FF287FE33F00E2A1E7 /* CreateWishList.swift in Sources */,
 				B5DA93F9287F9BEA00E2A1E7 /* WishListModel.swift in Sources */,
 				B5EEC427288730CA0096BA1A /* ItemDrawingView.swift in Sources */,
-				B57B49DE28A09975004370E8 /* ImageStorage.swift in Sources */,
 				B5D811322884AB8A00BA276D /* ItemDrawingViewModel.swift in Sources */,
 				B5DA93E0287F9AB200E2A1E7 /* IWishApp.swift in Sources */,
 				B5DA93FD287F9C0C00E2A1E7 /* ItemView.swift in Sources */,
-				B53E8FD6288A580100AD2ACD /* ForgotPasswordView.swift in Sources */,
+				B5E995B628A9DFF60064C8C7 /* WebStore.swift in Sources */,
 				B53E8FD428888D3200AD2ACD /* LoginViewModel.swift in Sources */,
-				B57B49D8289B98C0004370E8 /* ImagePicker.swift in Sources */,
 				B5D8B85E289454170008F6C1 /* ModelPersistence.swift in Sources */,
 				B5DA93F7287F9BD700E2A1E7 /* WishListView.swift in Sources */,
 				B53E8FD2288888F800AD2ACD /* LoginView.swift in Sources */,
+				B5E9959628A9BD930064C8C7 /* WebStoreView.swift in Sources */,
 				B5DA93FB287F9BFC00E2A1E7 /* ItemViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,6 +436,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -501,6 +469,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

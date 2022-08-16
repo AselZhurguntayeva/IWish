@@ -14,7 +14,6 @@ struct WishList: Identifiable, Equatable, Hashable, Codable {
     var id: String = UUID().uuidString
     var date: Date = Date()
     
-    
     static func ==(lhs: WishList, rhs: WishList) -> Bool {
         lhs.id == rhs.id
     }

@@ -14,8 +14,7 @@ struct CreateWishList: View {
     
     @State var date: Date = Date ()
     @State var title: String = ""
-//    @State var date: Date
-    //@StateObject private var wishListViewModel = WishListViewModel()
+    
     @ObservedObject var wishListViewModel: WishListViewModel
     var wishList: WishList?
     
@@ -29,10 +28,8 @@ struct CreateWishList: View {
                     Rectangle().fill(Color.clear)
                     Text("Title")
                         .frame( maxWidth: .infinity, alignment: .leading)
-//                        .font(.title3)
                         .font(.custom("Kanit-Medium", size: 20))
                         .padding(20)
-                    
                 }.frame(width: UIScreen.main.bounds.width - 30, height: 55, alignment: .leading)
                 ZStack {
                     Rectangle().fill(.ultraThinMaterial)
@@ -44,7 +41,6 @@ struct CreateWishList: View {
                 VStack{
                     ZStack(alignment: .leading) {
                         Text("Event date")
-//                            .font(.title3)
                             .font(.custom("Kanit-Medium", size: 20))
                             .padding(10)
                         Rectangle().fill(Color.clear)
@@ -52,7 +48,6 @@ struct CreateWishList: View {
                     }
                     .frame(width: UIScreen.main.bounds.width - 30, height: 55, alignment: .leading)
                     Text(date, style: .date)
-                    
                     ZStack {
                         Rectangle().fill(.ultraThinMaterial)
                             .cornerRadius(12)
@@ -60,24 +55,13 @@ struct CreateWishList: View {
                         DatePicker("When is your occasion?", selection: $date, in: startingDate..., displayedComponents: [.date])
                             .datePickerStyle(GraphicalDatePickerStyle())
                             .frame(width: 300, height: 300)
-                       
                     }
                     Spacer()
-                    
                 }
                 .labelsHidden()
                 Button {
-//                    if wishList == nil
-//                    {
-//                        prepareForCreateWishList(title: titleText, date: selectedDate)
-//                    guard
                         let title = title
-//                    , !title.isEmpty
-//                    else { return }
-                   
-                
                     wishListViewModel.createWishList(title: title, date: date)
-//                    } else { return }
                    dismiss()
                 } label: {
                     Text(wishList == nil ? "Create" : "Cancel")
@@ -101,8 +85,7 @@ struct CreateWishList: View {
                         Image(systemName: "keyboard.chevron.compact.down")
                     }
                 }
-            }
-            
+            }   
         }
         
         .onAppear {
@@ -111,14 +94,6 @@ struct CreateWishList: View {
             }
         }
     }
-//    func prepareForCreateWishList(title: String?
-//                                  , date: Date?
-//    ) {
-//        guard let title = title, !title.isEmpty
-//        else {return}
-//        let wishList = WishList(title: title)
-//        wishListViewModel.createWishList(wishList)
-//    }
 }
 
 struct CreateWishList_Previews: PreviewProvider {
